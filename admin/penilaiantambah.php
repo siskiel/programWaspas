@@ -46,7 +46,6 @@
                                 <input type='hidden' name='id_kriteria[]' value='<?php echo $pecah_kriteria['id_kriteria'];?>'>
                              <td> <select name="nilai_bobot[]">
                                      <option disabled="disabled" selected="selected">--Pilih--</option>
-
                                      <option value="4"> sangat Baik</option>
                                      <option value="3"> Baik</option>
                                      <option value="2"> CUkup Baik</option>

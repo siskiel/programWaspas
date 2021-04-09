@@ -10,7 +10,7 @@
 </pre> -->
         <h2><strong><?php echo $detail['nama']; ?></strong> </h2>
 
-        <!-- <form method="post"> -->
+        <form method="post">
         <div class="form-group">
             <label>Nama Lengkap</label>
             <input type="text" class="form-control" name="nama" required="required" value="<?php echo $detail['nama']; ?>" readonly>
@@ -59,7 +59,7 @@
                 <div class="form-group">
                     <label>Keterangan validasi</label>
                     <select class="form-control" name="ket">
-                        <option value=""> >Pilih Status< </option>
+                     <option disabled="disabled" selected="selected">--Pilih--</option>
                         <option value="Sesuai"> Sesuai </option>
                         <option value="Tidak Sesuai"> Tidak Seusai </option>
                         <option value="Batal"> Batal </option>
@@ -80,9 +80,8 @@
                 </div>
             </div>
         </div>
-        <!-- <button class="btn btn-primary" name="save">Simpan</button> -->
-        <!-- </form> -->
-        <h3>Harap Isi Penilaian Calon Komandan Dengan Baik Dan Benar</h3>
+        <input type="submit" name="save" value="Simpan Perubahan" class="btn btn-success">
+        </form>
         <?php
         // $gabung=$koneksi->query("SELECT * FROM sub_kriteria 
         // JOIN kriteria ON kriteria.id_kriteria=kriteria.id_kriteria Group by subkriteria.id_kriteria
@@ -125,7 +124,7 @@
         // $kriteria = $koneksi->query("SELECT * FROM kriteria  ");
         // $subkriteria = $koneksi->query("SELECT id_subKriteria, nama_sub, bobot_sub, parent FROM subkriteria WHERE parent = 0");
         ?>
-        <form action="">
+
             <?php 
             // $C = 1;
             // while ($penilaian = $kriteria->fetch_assoc()) { 
@@ -144,12 +143,13 @@
             <?php 
         // }
          ?>
-            <input type="submit" name="save" value="Simpan Penilaian" class="btn btn-success">
-        </form>
+            
+        
         <?php
         if (isset($_POST['save'])) {
-            $koneksi->query("INSERT INTO penialain (id_calon_komandan,nama_kriteria,bobot) VALUES('$_POST[kode]','$_POST[nama]','$_POST[bobot]')");
+             $ket=$_POST["ket"];
+            $koneksi->query("UPDATE calon_komandan SET keterangan='$ket' WHERE id_calon_komandan='$_GET[id]'");
             echo "<div class='alert alert-info'>Data tersimpan</div>";
-            echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=calonkomandan'>";
+            echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=calonKomandan'>";
         }
         ?>

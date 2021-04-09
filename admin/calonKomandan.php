@@ -23,8 +23,12 @@
                 <td><?php echo $pecah['nama']; ?></td>
                 <td><?php echo $pecah['pangkat']; ?></td>
                 <td><?php echo $pecah['jabatan']; ?></td>
-                <td><?php echo $pecah['kesatuan']; ?></td>
-                <td>Keterangan</td>
+                <td><?php echo $pecah['kesatuan']; ?></td>                               
+                <td> <?php if ($pecah['keterangan']==NULL ): ?> 
+                Data Belum di validasi
+                    <?php endif ?>
+                <?php echo $pecah['keterangan']; ?></td>
+
                 <td>
                     <a href="index.php?halaman=calonKomandanDetail&id=<?php echo $pecah['id_calon_komandan']; ?>" class="btn-warning btn">Detail</a>
 
