@@ -20,13 +20,24 @@ $jumlah_bobot = count($bobot);
 // $jumlah_kriteria = count($kriteria);
 
 // for($y=0;$x<$jumlah_kriteria;$y++){
-    
-for($x=0;$x<$jumlah_bobot;$x++){
+                        $ambil= $koneksi->query("SELECT * FROM penilaian WHERE id_calon_komandan='$nama'");
+                    $yangcocok= $ambil->num_rows;
+                    if ($yangcocok==1)
+                    {
+                     echo "<script>alert('Data Nilai Telah Ada, Silahkan isi data lain');</script>";
+                     echo "<script>location='reg.php';</script>";
+                     }
+                     else{
+                     for($x=0;$x<$jumlah_bobot;$x++){
                 $koneksi->query("INSERT INTO penilaian (id_calon_komandan,id_kriteria,nilai_bobot) VALUES('$nama','$id_kriteria[$x]','$bobot[$x]')");
                 echo "<div class='alert alert-info'>Data tersimpan</div>";
                 echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=penilaian'>";
             }
-}
+                     }
+                     }
+    
+
+
             // }
     
             ?>

@@ -53,14 +53,15 @@ include 'header.php';   ?>
 
       <div class="row content">
         <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-          <h2>Eum ipsam laborum deleniti velitena</h2>
-          <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+          <h2>Tentang </h2>
+          <h3>KODIM 0201/BS</h3>
+          <h5>Kodim 0201/BS beralamat di jl. Jl. Pengadilan No 8 Kelurahan Petisah Tengah, Kecamatan Medan Petisah Kota Medan Provinsi Sumatera Utara
+          
+          </h5>
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
           <p>
-            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
+            Sejarah terbentuknya Kodim 0201/BS tidak terlepas dari proses terbentuknya Kodam I/Bukit Barisan yang merupakan pertumbuhan penyusunan kembali organisasi TNI AD terutama mengenai Kodam, jumlah Kodam dikurangi dari 16 menjadi 10. Setelah tenjadinya pengungkapkan pernyataan dari  pemerintah Belanda kepada Pemerintah RI, maka seluruh kekuatan bersenjata yang berada di Sumatera Utara dihimpun menjadi Komando Tentara Teritorium Sumatera Utara (Ko T.T/SU). Peristiwa ini terjadi pada tahun 1950
           </p>
           <ul>
             <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
@@ -76,37 +77,7 @@ include 'header.php';   ?>
 
     </div>
   </section><!-- End About Section -->
-
-  <!-- ======= Counts Section ======= -->
-  <section id="counts" class="counts">
-    <div class="container">
-
-      <div class="row counters">
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">232</span>
-          <p>Clients</p>
-        </div>
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">521</span>
-          <p>Projects</p>
-        </div>
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">1,463</span>
-          <p>Hours Of Support</p>
-        </div>
-
-        <div class="col-lg-3 col-6 text-center">
-          <span data-toggle="counter-up">15</span>
-          <p>Hard Workers</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Counts Section -->
+ 
 
   <!-- ======= Why Us Section ======= -->
   <section id="why-us" class="why-us">
@@ -132,34 +103,34 @@ include 'header.php';   ?>
                 <div class="icon-box mt-4 mt-xl-0">
                   <i class="bx bx-receipt"></i>
                   <h4>Data Calon Komandan</h4>
-                                  <table class="table table-success table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">Pangkat/Korps/NRP</th>
-                  <th scope="col">Jabatan</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php $nomor = 1; ?>
-                <?php $ambil = $koneksi->query("SELECT * FROM calon_komandan"); ?>
-                <?php while ($pecah = $ambil->fetch_assoc()) { ?>
-                  <tr>
+                  <table class="table table-success table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Pangkat/Korps/NRP</th>
+                        <th scope="col">Jabatan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php $nomor = 1; ?>
+                      <?php $ambil = $koneksi->query("SELECT * FROM calon_komandan"); ?>
+                      <?php while ($pecah = $ambil->fetch_assoc()) { ?>
+                        <tr>
 
 
-                    <td><?php echo $nomor; ?></td>
-                    <td><?php echo $pecah['nama']; ?></td>
-                    <td><?php echo $pecah['pangkat']; ?></td>
-                    <td><?php echo $pecah['jabatan']; ?></td>
-                  </tr>
-                  <?php $nomor++; ?>
-                <?php } ?>
-              </tbody>
-            </table>
+                          <td><?php echo $nomor; ?></td>
+                          <td><?php echo $pecah['nama']; ?></td>
+                          <td><?php echo $pecah['pangkat']; ?></td>
+                          <td><?php echo $pecah['jabatan']; ?></td>
+                        </tr>
+                        <?php $nomor++; ?>
+                      <?php } ?>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-             
+
             </div>
           </div><!-- End .content-->
         </div>
@@ -173,9 +144,9 @@ include 'header.php';   ?>
     <div class="container">
 
       <div class="text-center" data-aos="zoom-in">
-        <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a class="cta-btn" href="#">Call To Action</a>
+        <h3>Kodim 0201/BS</h3>
+        <p> Komando Distrik Militer (disingkat Kodim) adalah komando pembinaan dan operasional kewilayahan TNI Angkatan Darat di bawah Korem</p>
+        <a class="cta-btn" href="#">Kodim 0201/BS</a>
       </div>
 
     </div>
@@ -189,39 +160,107 @@ include 'header.php';   ?>
         <div class="col-lg-4">
           <div class="section-title" data-aos="fade-right">
             <h2>Profil Kodim</h2>
-            <p>Berikut ini merupakan Data calon komandan, jika anda ingin mendaftar silahkan klik</p>
-            <a href="register.php" class="registrasi">registrasi</a>
+
+            <p>komando pembinaan dan operasional kewilayahan TNI Angkatan Darat di bawah Korem. Kodim membawahi beberapa Komando Rayon Militer (Koramil)</p>
+            
           </div>
         </div>
 
         <div class="col-lg-8 d-flex align-items-stretch mt-lg-0">
           <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="">Sed ut perspiciatis</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            <h4><a href="">Menaungi Koramil</a></h4>
+            <p>Kodim 0201/BS terdiri dari 21 Kecamatan Kota Medan dan 8 Kecamatan Kabupaten Deli Serdang dengan membawahi 16 Koramil </p>
             <table class="table table-success table-striped">
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">Pangkat/Korps/NRP</th>
-                  <th scope="col">Jabatan</th>
+                  <th scope="col">Nama Koramil</th>
+                  <th scope="col">Daerah naungan</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $nomor = 1; ?>
-                <?php $ambil = $koneksi->query("SELECT * FROM calon_komandan"); ?>
-                <?php while ($pecah = $ambil->fetch_assoc()) { ?>
-                  <tr>
+                <tr>
+                  <td>1</td>
+                  <td>Koramil 01/MB </td>
+                  <td>Kec. Medan Barat dan Kec. Medan Petisah</td>
+                </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>Koramil 02/MT </td>
+                  <td>Kec. Medan Timur dan Kec. Medan Perjuangan</td>
+                </tr>
+                 <tr>
+                  <td>3</td>
+                  <td>Koramil 03/MD </td>
+                  <td>Kec. Medan Denai dan Kec. Medan Tembung</td>
+                </tr>
 
-
-                    <td><?php echo $nomor; ?></td>
-                    <td><?php echo $pecah['nama']; ?></td>
-                    <td><?php echo $pecah['pangkat']; ?></td>
-                    <td><?php echo $pecah['jabatan']; ?></td>
-                  </tr>
-                  <?php $nomor++; ?>
-                <?php } ?>
+                 <tr>
+                  <td>4</td>
+                  <td>Koramil 04/MK</td>
+                  <td>Kec. Medan Kota dan Kec. Medan Area</td>
+                </tr> <tr>
+                  <td>5</td>
+                  <td>Koramil 05/MB </td>
+                  <td>Kec. Medan Baru, Kec. Medan Polonia dan Kec. Medan Maimun</td>
+                </tr>
+                 <tr>
+                  <td>6</td>
+                  <td>Koramil 06/MS </td>
+                  <td>Kec. Medan Sunggal dan Medan Helvetia</td>
+                </tr>
+                 <tr>
+                  <td>7</td>
+                  <td>Koramil 07/MT </td>
+                  <td>Kec. Medan Tuntungan dan Kec. Medan Selayang</td>
+                </tr>
+                 <tr>
+                  <td>8</td>
+                  <td>Koramil 08/MJ </td>
+                  <td>Kec. Medan Johor dan Medan Amplas</td>
+                </tr>
+                 <tr>
+                  <td>9</td>
+                  <td>Koramil 09/MB </td>
+                  <td>Kec. Medan Belawan</td>
+                </tr>
+                 <tr>
+                  <td>10</td>
+                  <td>Koramil 10/ML </td>
+                  <td>Kec. Medan Labuhan dan Kec. Medan Marelan</td>
+                </tr>
+                 <tr>
+                  <td>11</td>
+                  <td>Koramil 11/MD </td>
+                  <td>Kec. Medan Deli</td>
+                </tr>
+                 <tr>
+                  <td>12</td>
+                  <td>Koramil 12/HP </td>
+                  <td>Kec. Hamparan Perak dan Kec. Labuhan Deli</td>
+                </tr>
+                 <tr>
+                  <td>13</td>
+                  <td>Koramil 13/PST </td>
+                  <td>Kec. Percut Sei Tuan</td>
+                </tr>
+                 <tr>
+                  <td>14</td>
+                  <td>Koramil 14/PB </td>
+                  <td>Kec. Pancur Batu dan Kec. Namorambe</td>
+                </tr>
+                 <tr>
+                  <td>15</td>
+                  <td>Koramil 15/DT </td>
+                  <td>Kec. Deli Tua dan Kec. Patumbak</td>
+                </tr>
+                 <tr>
+                  <td>16</td>
+                  <td>Koramil 16/TM </td>
+                  <td>Kec. Tanjung Morawa</td>
+                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -245,30 +284,30 @@ include 'header.php';   ?>
         <div class="col-lg-4" data-aos="fade-right">
           <div class="section-title">
             <h2>Contact</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <p>Untuk info leboh lanjut silahkan hubungi tim penilai</p>
           </div>
         </div>
 
         <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-          
+
           <div class="info mt-4">
             <i class="icofont-google-map"></i>
             <h4>Location:</h4>
-            <p>A108 Adam Street, New York, NY 535022</p>
+            <p>Jl. Pengadilan No 8 Kelurahan Petisah Tengah, Kecamatan Medan Petisah Kota Medan Provinsi Sumatera Utara</p>
           </div>
           <div class="row">
             <div class="col-lg-6 mt-4">
               <div class="info">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>Timpenilaikomandankodim.com</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="info w-100 mt-4">
                 <i class="icofont-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>(061) 4531060</p>
               </div>
             </div>
           </div>

@@ -57,7 +57,7 @@ include 'config/koneksi.php';
             <li class="active"><a href="#header">Home</a></li>
             <li><a href="index.php#about">About</a></li>
             <li><a href="index.php#services">Profil Kodim</a></li>
-            <li><a href="index.php#services">Data Calon Komandan</a></li>
+            <li><a href="index.php#why-us">Data Calon Komandan</a></li>
          
             <li><a href="index.php#contact">Contact</a></li>
             <?php session_start(); ?>
