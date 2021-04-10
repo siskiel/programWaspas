@@ -37,6 +37,7 @@ $ambil_kriteria = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan 
             <?php } ?>
             <th>Aksi</th>
         </tr>
+    </thead>
             <?php while ($pecah = $ambil->fetch_array()) { ?>
     <tbody>
         <td><?php echo $nomor; ?></td>
