@@ -43,7 +43,7 @@
 
 ?>
 
- <h2>Edit Penilaian  <?= $pecah_penilaian['nama']?> </h2>
+ <h2>Edit Penilaian <strong> <?= $alternatif['nama']?></strong> </h2>
  <a href="index.php?halaman=penilaian" class=" btn btn-warning  pull-right">
      << Kembali </a>
          <br>
