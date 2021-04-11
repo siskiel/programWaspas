@@ -48,7 +48,7 @@
                                      <option disabled="disabled" selected="selected">--Pilih--</option>
                                      <option value="4">Sangat Baik</option>
                                      <option value="3"> Baik</option>
-                                     <option value="2">Cuku Baik</option>
+                                     <option value="2">Cukup Baik</option>
 
                                      <option value="1">Kurang Baik</option>
                                  </select></td>
