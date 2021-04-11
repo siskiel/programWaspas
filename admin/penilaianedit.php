@@ -1,20 +1,47 @@
- <?php
+<?php
 
-use PhpParser\Node\Stmt\Echo_;
+    // ambil nilai kriteria
+    $kriteria = [];
+    $result = $koneksi->query('SELECT * FROM kriteria ORDER BY id_kriteria ASC');
+    $index = 0;
+    while($row = mysqli_fetch_array($result)):
+        $kriteria['id_kriteria'][$index] = $row['id_kriteria'];
+        $kriteria['kode_kriteria'][$index] = $row['kode_kriteria'];
+        $kriteria['nama_kriteria'][$index] = $row['nama_kriteria'];
+        $kriteria['bobot'][$index] = $row['bobot'];
 
-$ambil_kriteria = $koneksi->query("SELECT * FROM kriteria");
-    $ambil_calon_komandan = $koneksi->query("SELECT * FROM calon_komandan");
-    $penilaian=$koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan ON 
-        calon_komandan.id_calon_komandan=penilaian.id_calon_komandan
-         JOIN kriteria ON kriteria.id_kriteria=penilaian.id_kriteria
-          WHERE penilaian.id_penilaian='$_GET[id]'");
+        $index+=1;
+    endwhile;
 
-    $pecah_penilaian = $penilaian->fetch_assoc();
-    //    hitung jumlah data kriteria []
-    $j_kriteria = mysqli_num_rows($ambil_kriteria);
-    // gitung jumlah data calon_komandan
-    $j_calon_komandan = mysqli_num_rows($ambil_calon_komandan);
-    ?>
+    // mengambil nilai alternatif
+    $alternatif = null;
+    $result = $koneksi->query('SELECT * FROM calon_komandan WHERE id_calon_komandan="'.$_GET['id_calon_komandan'].'"');
+    if($result->num_rows > 0) {
+        $alternatif = $result->fetch_assoc();
+    } else {
+        echo "<script>";
+        echo "alert('Data yang anda pilih tidak ditemukan!');";
+        echo "window.location = 'index.php?halaman=penilaian';";
+        echo "</script>";
+    }
+
+    // ambil penilaian dari sialternatif
+    $result = $koneksi->query('SELECT * FROM penilaian WHERE id_calon_komandan="'.$_GET['id_calon_komandan'].'" ORDER BY id_kriteria ASC');
+    if($result->num_rows > 0) {
+        while($row = mysqli_fetch_array($result)):
+            $penilaian['id_penilaian'][$row['id_kriteria']] = $row['id_penilaian'];
+            $penilaian['nilai_bobot'][$row['id_kriteria']] = $row['nilai_bobot'];
+        endwhile;
+    
+        $alternatif['penilaian'] = $penilaian;
+    } else {
+        echo "<script>";
+        echo "alert('Data nilai pada alternatif yang anda pilih tidak ditemukan!. Silahkan tambah terlebih dahulu!');";
+        echo "window.location = 'index.php?halaman=penilaiantambah';";
+        echo "</script>";
+    }
+
+?>
 
  <h2>Edit Penilaian  <?= $pecah_penilaian['nama']?> </h2>
  <a href="index.php?halaman=penilaian" class=" btn btn-warning  pull-right">
@@ -31,53 +58,56 @@ $ambil_kriteria = $koneksi->query("SELECT * FROM kriteria");
                      <th>Kriteria</th>
                      <th>Bobot Kriteria</th>
                  </thead>
+                 
                  <tbody>
-                 <?php $nomor = 1; 
-                 ?>
-                            <?php while ($pecah_kriteria = $ambil_kriteria->fetch_assoc()) { ?>
-                                <tr>
-                        
-                         <td><?php echo $nomor; ?></td>
-                                <td><?php echo $pecah_kriteria['kode_kriteria']; ?></td>
-                                <td><input type="text" name ="kriteria" class="form-control" value="<?php echo $pecah_kriteria['nama_kriteria'];?>" readonly></td>
-                         <!-- <td name=""></td> -->
-                                <input type='hidden' name='id_kriteria[]' value='<?php echo $pecah_kriteria['id_kriteria'];?>'>
-                             <td> <select name="nilai_bobot[]">
-                                     <option disabled="disabled" selected="selected">--Pilih--</option>
-                                     <option value="4"> sangat Baik</option>
-                                     <option value="3"> Baik</option>
-                                     <option value="2"> CUkup Baik</option>
-                                     <option value="1"> Tidak Baik</option>
-                                 </select></td>
+                    <?php
+            
+                        $no=1;
 
-                     <?php $nomor++; ?>
-                         <?php } ?>
-                     </tr>
+                        foreach ($kriteria['id_kriteria'] as $key1 => $data1):
+                    ?>
+                            <tr>
+                                <td><?= $no ?></td>
+                                <td><?= $kriteria['kode_kriteria'][$key1] ?></td>
+                                <td>
+                                    <input type='text' name ='kriteria' class='form-control' value='<?= $kriteria['nama_kriteria'][$key1] ?>' readonly>
+                                </td>
+                                <td>
+                                    <select name="nilai_bobot[<?= $data1 ?>]" id="nilai_bobot" class="form-control">
+                                        <option disabled="disabled" selected>--Pilih--</option>
+                                        <option value="4" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 4) ? "selected" : "" ?>> Sangat Baik</option>
+                                        <option value="3" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 3) ? "selected" : "" ?>> Baik</option>
+                                        <option value="2" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 2) ? "selected" : "" ?>> Cukup Baik</option>
+                                        <option value="1" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 1) ? "selected" : "" ?>> Tidak Baik</option>
+                                    </select>
+                                </td>
+                            </tr>
+                    <?php
+                            $no++;
+                        endforeach;
 
-                    
+                    ?>
                  </tbody>
              </table>
              
              <button class="btn btn-primary" name="Ubah">Ubah</button>
          </form>
+
          <?php
          
-         if (isset($_POST['Ubah'])) {
-             
-                $id_kriteria= $_POST['id_kriteria'];
-$bobot = $_POST['nilai_bobot'];
-$jumlah_bobot = count($bobot);
-// $kriteria = $_POST['kriteria'];
-// $jumlah_kriteria = count($kriteria);
+            if (isset($_POST['Ubah'])) {
+                $bobot = $_POST['nilai_bobot'];
 
-// for($y=0;$x<$jumlah_kriteria;$y++){
-    
-for($x=0;$x<$jumlah_bobot;$x++){
-                $koneksi->query("UPDATE  penilaian SET id_kriteria=$id_kriteria[$x], nilai_bobot=$bobotbot[$x] WHERE id_calon_komandan='$_GET[id]'");
-                echo "<div class='alert alert-info'>Data tersimpan</div>";
-                echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=penilaian'>";
+                foreach ($bobot as $key => $data) {
+                    $koneksi->query("UPDATE penilaian SET nilai_bobot='".$data."' WHERE id_calon_komandan='".$_GET['id_calon_komandan']."' AND id_kriteria='".$key."'");
+
+                    echo "<div class='alert alert-info'>Data tersimpan</div>";
+                }
+
+                echo "<script>";
+                echo "alert('Data berhasil diperbarui!');";
+                echo "window.location = 'index.php?halaman=penilaian';";
+                echo "</script>";
             }
-}
-            // }
     
-         ?>
+        ?>

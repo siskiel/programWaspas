@@ -116,6 +116,8 @@ font-size: 16px;"><span id="tanggalwaktu"></span> <a href="index.php?halaman=log
                         include 'penilaianedit.php';
                     } elseif ($_GET['halaman'] == "penilaianhapus") {
                         include 'penilaianhapus.php';
+                    } elseif ($_GET['halaman'] == "prosesWaspas") {
+                        include 'prosesWaspas.php';
                     } elseif ($_GET['halaman'] == "laporan") {
                         include 'laporan.php';
                     } elseif ($_GET['halaman'] == "logout") {
