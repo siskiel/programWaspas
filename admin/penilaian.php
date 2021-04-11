@@ -26,6 +26,7 @@ $ambil_kriteria = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan 
 <a href="cetak_penilaian.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>
 <br>
 <br>
+<form action="proses_penilaian.php" method="POST" >
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -41,7 +42,7 @@ $ambil_kriteria = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan 
             <?php while ($pecah = $ambil->fetch_array()) { ?>
     <tbody>
         <td><?php echo $nomor; ?></td>
-        <td><?= $pecah['nama']; ?></td>
+        <td name="nama"><?= $pecah['nama']; ?></td>
         <?php for ($j = 0; $j < $j_kriteria; $j++) { ?>
             <td><?= $pecah['nilai_bobot']; ?></td>
         <?php } ?>
@@ -52,9 +53,10 @@ $ambil_kriteria = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan 
     <?php $nomor++;
             } ?>
     </tbody>
-  
+</table>
+    <button type="submit" class="btn-primary btn" > Proses Hitung</button>
+  </form>
 <?php 
 print_r($pecah)
 ?>
 </pre>
-</table>

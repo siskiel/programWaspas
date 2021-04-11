@@ -5,16 +5,20 @@ $nomor = 1;
 $ambil = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan ON 
         calon_komandan.id_calon_komandan=penilaian.id_calon_komandan
          JOIN kriteria ON kriteria.id_kriteria=penilaian.id_kriteria
-         WHERE kriteria.id_kriteria
-         Group by penilaian.id_calon_komandan
+        --  WHERE kriteria.id_kriteria=penilaian.id_penilai
+        --  Group by penilaian.id_calon_komandan
          ");
 
-$ambil_kriteria = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan ON 
-        calon_komandan.id_calon_komandan=penilaian.id_calon_komandan
-         JOIN kriteria ON kriteria.id_kriteria=penilaian.id_kriteria
-         GROUP BY penilaian.id_kriteria
-         ");
+// $ambil_kriteria = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan ON 
+//         calon_komandan.id_calon_komandan=penilaian.id_calon_komandan
+//          JOIN kriteria ON kriteria.id_kriteria=penilaian.id_kriteria
+//          GROUP BY penilaian.id_kriteria
+//          ");
+
+//  tabel kriteria
 $kriteria = $koneksi->query("SELECT * FROM kriteria");
+
+// tabel penilaian
 $penilaian = $koneksi->query("SELECT * FROM penilaian");
 
 $j_kriteria = mysqli_num_rows($kriteria);
@@ -22,15 +26,26 @@ $j_kriteria = mysqli_num_rows($kriteria);
 // $j_calon_komandan = mysqli_num_rows($ambil_calon_komandan);
 
 // nilai max 
-$nilai_max = $koneksi->query("SELECT id_kriteria, MAX(nilai_bobot) As nilai_max FROM `penilaian` GROUP BY id_kriteria");
+$nilai_max = $koneksi->query("SELECT id_kriteria, MAX(nilai_bobot) As nilai_max 
+FROM penilaian GROUP BY id_kriteria");
 
 
-$wsm_wp = $koneksi->query("SELECT penilaian.id_calon_komandan, kriteria.bobot*(SELECT penilaian.nilai_bobot/4) As perkalian_matriks, pow(kriteria.bobot,(SELECT penilaian.nilai_bobot/4)) AS nilai_wsm FROM penilaian JOIN calon_komandan ON calon_komandan.id_calon_komandan=penilaian.id_calon_komandan JOIN kriteria ON kriteria.id_kriteria=penilaian.id_kriteria WHERE kriteria.id_kriteria Group by penilaian.id_calon_komandan,penilaian.id_kriteria");
+$wsm_wp = $koneksi->query("SELECT kriteria.bobot*(SELECT penilaian.nilai_bobot/4)
+ As perkalian_matriks, pow(kriteria.bobot,
+ (SELECT penilaian.nilai_bobot/4)) AS nilai_wsm 
+ FROM penilaian JOIN calon_komandan ON 
+ calon_komandan.id_calon_komandan=penilaian.id_calon_komandan 
+ JOIN kriteria ON kriteria.id_kriteria=penilaian.id_kriteria 
+ WHERE kriteria.id_kriteria 
+ Group by penilaian.id_calon_komandan,penilaian.id_kriteria");
+
 // $ambilnilai=$wsm_wp->fetch_assoc();
 
+// martiks ternormalisasi
 $n_matriks = $koneksi->query("SELECT nilai_bobot/(SELECT MAX(nilai_bobot) FROM penilaian) AS Nilai_matriks 
 FROM penilaian  JOIN kriteria ON kriteria.id_kriteria=penilaian.id_penilaian 
 ORDER BY penilaian.id_kriteria");
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -55,9 +70,7 @@ ORDER BY penilaian.id_kriteria");
 
 
 
-    <h2> Data Penilaian</h2>
-    <a href="index.php?halaman=penilaiantambah" class="btn btn-primary">Tambah Penilaian</a>
-    <a href="cetakproduk.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>
+    <h2> Proeses Penilaian</h2>
     <br>
     <br>
 
@@ -89,5 +102,8 @@ ORDER BY penilaian.id_kriteria");
 
     </table>
 </body>
-
+<?php 
+$nilai = mysqli_free_result($wsm_wp);
+print_r($nilai);
+?>
 </html>
