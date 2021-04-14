@@ -1,76 +1,41 @@
 <?php 
-$semuadata=array();
-$tgl_mulai="-";
-$tgl_selesai="-";
-if (isset($_POST["kirim"])) 
-{
-    $tgl_mulai=$_POST["tglm"];
-    $tgl_selesai=$_POST["tgls"];
-    $ambil=$koneksi->query("SELECT * FROM pembelian pm LEFT JOIN pelanggan pl ON
-        pm.id_pelanggan=pl.id_pelanggan WHERE tgl_pembelian BETWEEN '$tgl_mulai' AND '$tgl_selesai' ");
-    while ($pecah = $ambil->fetch_assoc()) 
-    {
-        $semuadata[]=$pecah;
-    }
-    // echo "<pre>";
-    // print_r($semuadata);
-    // echo "</pre>";
-}
+
 ?>
 
-<h2> Laporan Pembelian <?php echo date ('d F Y', strtotime($tgl_mulai)) ?> Hingga <?php echo date ('d F Y', strtotime($tgl_selesai)); ?>  </h2>
+<h2 class="text-center"> Laporan Hasil Perhitungan Waspas dari Pemilihan Komandan Kodim 0201 BS Madan </h2>
 <hr>
-<form method="post">
-    <div class="col-md-5">
-        <div class="form-group">
-            <label>Tanggal Mulai</label>
-            <input type="date" name="tglm" value="<?php echo  $tgl_mulai?>" class="form-control">
-        </div>
-    </div>
-    <div class="col-md-5">
-        <div class="form-group">
-            <label>Tanggal Selesai</label>
-            <input type="date" name="tgls"  value="<?php echo  $tgl_selesai?>" class="form-control">
-        </div>
-    </div>
-    <div class="col-md-2">
-        <br>
-        <button class="btn btn-primary" name="kirim">Lihat</button>
-        <!-- <a href="cetaklaporan.php" class="btn btn-warning" target="_blank">Print </a>  -->
-       <!--  <input type="submit" class="form-control" name="cetaklaporan" class="btn btn-primary" value="Cetak"> -->
-    </div>  
-
-</form>
-
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>No</th>
-            <th>Pelanggan</th>
-            <th>Tanggal</th>
-            <th>Total Pembelian</th>
+            <th>Nama</th>
+            <th>Nilai Qi</th>
+            <th>Rangking</th>
             <th>Status</th>
         </tr>
     </thead>
     <tbody>
-        <?php $total = 0 ; ?>
-        <?php  foreach ($semuadata as $key =>$value) :?>
-            <?php $total+=$value['total_pembelian']?>
+        <?php $nomor = 1 ;
+       
+         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_komandan )) AS ranking FROM calon_komandan"); 
+       ?>
+        <?php while ($detail = $ambil->fetch_assoc()) { ?>
         <tr>
-            <td><?php echo $key+1;?></td>
-            <td><?php echo $value["nama_pelanggan"];?></td>
-            <td><?php echo date ('d F Y', strtotime($value["tgl_pembelian"]));?></td>
-            <td>Rp. <?php echo  number_format($value["total_pembelian"]);?></td>
-            <td><?php echo $value["status_pembelian"];?></td>
+            <td><?php echo $nomor; ?></td>
+            <td><?php echo $detail['nama']; ?></td>
+            <td><?php echo $detail['hasil']; ?></td>
+            <td><?php echo $detail['ranking']; ?></td>
+            <?php if ($detail['ranking']==1 ):  ?>
+            <td><strong>Terpilih</strong></td>
+            <?php else:  ?>
+            <td>Tidak terpilih
+            </td>
+            <?php endif ?>
         </tr>
-        <?php endforeach ?>
+        <?php $nomor++ ; } ?>
 
     </tbody>
-    <tfoot>
-        <tr>
-        <th colspan="3">Total</th>
-        <th>Rp. <?php echo number_format($total) ?></th>
-        <th></th>
-        </tr>
-    </tfoot>
 </table>
+<a href="cetak_penilaian.php" class="btn btn-success text-center" target="_blank"><span
+        class="glyphicon glyphicon-download"></span>
+    Cetak Laporan </a>

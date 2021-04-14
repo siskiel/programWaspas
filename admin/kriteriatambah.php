@@ -1,11 +1,11 @@
 <!-- mengambil data barang dengan kode paling besar -->
-	<?php $query = mysqli_query($koneksi, "SELECT max(kode_kriteria) as kodeTerbesar FROM kriteria");
+<?php $query = mysqli_query($koneksi, "SELECT max(kode_kriteria) as kodeTerbesar FROM kriteria");
 	$data = mysqli_fetch_array($query);
 	$kodeBarang = $data['kodeTerbesar'];
  
 	// <!-- mengambil angka dari kode barang terbesar, menggunakan fungsi substr
 	// dan diubah ke integer dengan (int) -->
-	$urutan = (int) substr($kodeBarang, 1, 1);
+	$urutan = (int) substr($kodeBarang, 3, 3);
  
 	// bilangan yang diambil ini ditambah 1 untuk menentukan nomor urut berikutnya -->
 	$urutan++;
@@ -15,7 +15,7 @@
 	// misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
 	// angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG  -->
 	$huruf = "C";
-	$kodeBarang = $huruf . sprintf("%01s", $urutan);
+	$kodeBarang = $huruf . sprintf("%03s", $urutan);
 	?>
 <h2>Tambah Kriteria</h2>
 <a href="index.php?halaman=kriteria" class=" btn btn-warning  pull-right">
@@ -23,9 +23,9 @@
         <br>
         <br>
         <form method="post">
-        <div class="form-group">
+            <div class="form-group">
                 <label>Kode Kriteria</label>
-                <input type="text" class="form-control" name="kode" required="required" value="<?php echo $kodeBarang ?>" readonly>
+                <input type="text" class="form-control" name="kode" required="required">
             </div>
             <div class="form-group">
                 <label>Nama Kriteria</label>

@@ -68,13 +68,14 @@ for ($i = 0; $i < count($alternatif['id_calon_komandan']); $i++) {
 
     $Q[$i] = round((0.5 * $WSM) + (0.5 * $WPM), 3);
 
+
+
     // update ke table calon_komandan
     $koneksi->query('UPDATE calon_komandan SET hasil="' . $Q[$i] . '" WHERE id_calon_komandan="' . $alternatif['id_calon_komandan'][$i] . '"');
 }
-
-// melakukan sorting
-$RSort = $Q;
-rsort($RSort);
+   // melakukan sorting
+    $RSort = $Q;
+    rsort($RSort);
 
 ?>
 
@@ -168,4 +169,4 @@ rsort($RSort);
     </tbody>
 </table>
 
-<a href="index.php?halaman=laporan" class="btn btn-primary">Proses Perhitungan</a>
+<a href="index.php?halaman=laporan" class="btn btn-primary">Lihat Laporan </a>

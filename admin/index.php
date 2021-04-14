@@ -44,7 +44,8 @@ if (!isset($_SESSION['admin'])) {
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"><span id="tanggalwaktu"></span> <a href="index.php?halaman=logout" class="btn btn-danger square-btn-adjust"> Logout</a> </div>
+font-size: 16px;"><span id="tanggalwaktu"></span> <a href="index.php?halaman=logout"
+                    class="btn btn-danger square-btn-adjust" style="background-color: #009B50;"> Logout</a> </div>
         </nav>
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
@@ -134,17 +135,20 @@ font-size: 16px;"><span id="tanggalwaktu"></span> <a href="index.php?halaman=log
 
         <!-- tanggal dan waktu  -->
         <script>
-            var tw = new Date();
-            if (tw.getTimezoneOffset() == 0)(a = tw.getTime() + (7 * 60 * 60 * 1000))
-            else(a = tw.getTime());
-            tw.setTime(a);
-            var tahun = tw.getFullYear();
-            var hari = tw.getDay();
-            var bulan = tw.getMonth();
-            var tanggal = tw.getDate();
-            var hariarray = new Array("Minggu,", "Senin,", "Selasa,", "Rabu,", "Kamis,", "Jum'at,", "Sabtu,");
-            var bulanarray = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember");
-            document.getElementById("tanggalwaktu").innerHTML = hariarray[hari] + " " + tanggal + " " + bulanarray[bulan] + " " + tahun + " Jam " + ((tw.getHours() < 10) ? "0" : "") + tw.getHours() + ":" + ((tw.getMinutes() < 10) ? "0" : "") + tw.getMinutes() + (" WIB ");
+        var tw = new Date();
+        if (tw.getTimezoneOffset() == 0)(a = tw.getTime() + (7 * 60 * 60 * 1000))
+        else(a = tw.getTime());
+        tw.setTime(a);
+        var tahun = tw.getFullYear();
+        var hari = tw.getDay();
+        var bulan = tw.getMonth();
+        var tanggal = tw.getDate();
+        var hariarray = new Array("Minggu,", "Senin,", "Selasa,", "Rabu,", "Kamis,", "Jum'at,", "Sabtu,");
+        var bulanarray = new Array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus",
+            "September", "Oktober", "Nopember", "Desember");
+        document.getElementById("tanggalwaktu").innerHTML = hariarray[hari] + " " + tanggal + " " + bulanarray[bulan] +
+            " " + tahun + " Jam " + ((tw.getHours() < 10) ? "0" : "") + tw.getHours() + ":" + ((tw.getMinutes() < 10) ?
+                "0" : "") + tw.getMinutes() + (" WIB ");
         </script>
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

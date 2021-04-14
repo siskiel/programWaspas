@@ -1,0 +1,6 @@
+<br />
+<b>Warning</b>:  include(config/koneksi.php): failed to open stream: No such file or directory in <b>C:\xampp\htdocs\program_waspas\admin\download.php</b> on line <b>2</b><br />
+<br />
+<b>Warning</b>:  include(): Failed opening 'config/koneksi.php' for inclusion (include_path='C:\xampp\php\PEAR') in <b>C:\xampp\htdocs\program_waspas\admin\download.php</b> on line <b>2</b><br />
+<br />
+<b>Warning</b>:  readfile(blangko/2021040518294438-Jurnal Artikel Ilmiah-96-2-10-20190222.pdf): failed to open stream: No such file or directory in <b>C:\xampp\htdocs\program_waspas\admin\download.php</b> on line <b>12</b><br />

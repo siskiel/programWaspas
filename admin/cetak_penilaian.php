@@ -2,9 +2,8 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 include '../config/koneksi.php';
-
 $mpdf = new \Mpdf\Mpdf();
-$html = '
+$html= '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,50 +13,57 @@ $html = '
      <link href="assets/css/font-awesome.css" rel="stylesheet" />
      <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
      <link href="assets/css/custom.css" rel="stylesheet" />
-    <title>Data penilaian Calon Komandan</title>
+<head>
+    <title>Laporan Hasil Perhitungan Metode Waspas Pemilihan Calon Komandan 0201/BS Medan</title>
 </head>
+<style>
+p {
+   line: height 20px;
+}
+</style>
 <body>
-    <div class"container">;
-    <h1>Data Nilai Calon Komandan</h1>
-    <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Nama Calon komandan</th>';
-while ($pecah_kriteria = $ambil_kriteria->fetch_assoc()) {
-    '<td>'.$pecah_kriteria['kode_kriteria'];'</td>';
-} ;
+    <h2 class="text-center">Laporan Hasil Perhitungan Metode Waspas Pemilihan Calon Komandan 0201/BS Medan</h2>
 
-'<th>Email</th>
-            <th>No. Hp</th>
-            <th>Alamat</th>
+    <table class="table table-bordered">
+    <thead >
+        <tr >
+            <th class="text-center">No</th>
+            <th class="text-center">Nama Calon Komandan</th>
+            <th class="text-center">Nilai </th>
+            <th class="text-center">Rangking</th>
+            <th class="text-center">Status</th>
         </tr>
     </thead>
     <tbody>';
-$nomor = 1;
-$kriteria = $koneksi->query("SELECT * FROM kriteria");
-$penilaian = $koneksi->query("SELECT * FROM penilaian");
-$j_kriteria = mysqli_num_rows($kriteria);
-
-$ambil_kriteria = $koneksi->query("SELECT * FROM penilaian  JOIN calon_komandan ON 
-        calon_komandan.id_calon_komandan=penilaian.id_calon_komandan
-         JOIN kriteria ON kriteria.id_kriteria=penilaian.id_kriteria
-         GROUP BY penilaian.id_kriteria
-         ");
-
-while ($pecah_kriteria = $ambil_kriteria->fetch_assoc()) {;
-$html.= '<tr>
-    <td>'.$nomor++.'</td>
-    <td>'.$pecah["nama"].'</td>
-
-</tr>';
-};
-$html.= '
-</tbody>
-</table>
-</div>
+    $nomor=1;
+     
+         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_komandan )) AS ranking FROM calon_komandan"); ;
+         while ($detail = $ambil->fetch_assoc()) {   
+              if ($detail['ranking']==1 ){
+                  $detailString = '<strong>Terpilih</strong>';
+              }
+                      else{
+                           $detailString = 'Tidak terpilih' ;
+                      
+                  }
+              
+         $html.=    '<tr>
+                        <td class="text-center">'.$nomor++.'</td>
+                        <td>'.$detail["nama"].'</td>
+                        <td class="text-center">'.$detail["hasil"].'</td>
+                        <td class="text-center">'.$detail["ranking"].'</td>
+                       <td class="text-center">'.$detailString.'</td>
+                       </tr>';
+        };
+$html.=    '
+        </tbody>
+    </table>
+    <p class="text-right">Diketahui, Ketua Tim Penilai</p>
+    <br>
+    <br>
+    <br>
+    <h4 class="text-right "><strong> Tim Penilai </strong> </h4>
 </body>
-
 </html>';
 $mpdf->WriteHTML($html);
 $mpdf->Output();?>

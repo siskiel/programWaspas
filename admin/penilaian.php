@@ -43,7 +43,7 @@ foreach ($alternatif['id_calon_komandan'] as $key => $data) {
 
 <h2> Data Penilaian</h2>
 <a href="index.php?halaman=penilaiantambah" class="btn btn-primary">Tambah Penilaian</a>
-<a href="cetak_penilaian.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>
+<a href="cetak_datanilai.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>
 <br>
 <br>
 
@@ -56,7 +56,7 @@ foreach ($alternatif['id_calon_komandan'] as $key => $data) {
             <?php
                 for ($i=0; $i < count($kriteria['id_kriteria']); $i++) :
             ?>
-                <th><?php echo $kriteria['kode_kriteria'][$i]; ?></th>
+            <th><?php echo $kriteria['kode_kriteria'][$i]; ?></th>
             <?php
                 endfor;
             ?>
@@ -69,9 +69,10 @@ foreach ($alternatif['id_calon_komandan'] as $key => $data) {
         <?php
             if(!isset($alternatif['penilaian'])) :
         ?>
-            <tr>
-                <td colspan="<?php echo (3 + count($kriteria['kode_kriteria'])) ?>" align="center">Tidak Ada Data Penilaian</td>
-            </tr>
+        <tr>
+            <td colspan="<?php echo (3 + count($kriteria['kode_kriteria'])) ?>" align="center">Tidak Ada Data Penilaian
+            </td>
+        </tr>
         <?php
             else:
                 $index = 1;
@@ -93,7 +94,7 @@ foreach ($alternatif['id_calon_komandan'] as $key => $data) {
                     }
 
                     echo "<td>";
-                    echo '<a href="index.php?halaman=penilaianedit&id_calon_komandan='.$alternatif['id_calon_komandan'][$key1].'" class="btn-warning btn">Edit</a> | ';
+                    echo '<a href="index.php?halaman=penilaianedit&id_calon_komandan='.$alternatif['id_calon_komandan'][$key1].'" class="btn-warning btn">Edit</a>  ';
                     echo '<a href="index.php?halaman=penilaianhapus&id_calon_komandan='.$alternatif['id_calon_komandan'][$key1].'" class="btn-danger btn" onclick="return confirm(\'Apakah yakin ingin menghapus data penilaian?\');">Hapus</a>';
                     echo "</td>";
 
