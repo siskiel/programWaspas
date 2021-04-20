@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 //skrip koneksi
@@ -6,30 +5,29 @@ include 'config/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Register</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up | Kodim 0201/BS Medan</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="assets/loginRegister/fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="assets/loginRegister/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="assets/login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="assets/login/css/main.css">
+    <!--===============================================================================================-->
 </head>
-<style>
-    a:hover{
-        color: blueviolet;
-    }
-    .back{
-        margin-left: 5em;
-    }
-</style>
+
 <body>
 
-    <div class="main">
-<?php 
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <?php 
                     if (isset($_POST["signup"]))
                     {
                     $name= $_POST["name"];
@@ -45,7 +43,7 @@ include 'config/koneksi.php';
                      return false ;   
                     }
 
-                    $ambil= $koneksi->query("SELECT * FROM calon_komandan WHERE email='$email'");
+                    $ambil= $koneksi->query("SELECT * FROM calon_pelatih WHERE email='$email'");
                     $yangcocok= $ambil->num_rows;
                     if ($yangcocok==1)
                     {
@@ -53,60 +51,67 @@ include 'config/koneksi.php';
                      echo "<script>location='reg.php';</script>";
                      }
                      else{
-                     $koneksi->query("INSERT INTO calon_komandan(nama,email,password) VALUES('$name','$email','$password')");
+                     $koneksi->query("INSERT INTO calon_pelatih(nama,email,password) VALUES('$name','$email','$password')");
 
                      echo "<div class='alert alert-info'>Data tersimpan , silahkan Login</div>";
                      echo "<meta http-equiv='refresh' content='1;url=login.php'>";
                      }
                      }
                     ?>
-        <!-- Sign up form -->
-        <section class="signup">
-            <div class="container">
-                <div class="signup-content">
-                    <div class="signup-form">
-                        <h2 class="form-title">Sign up</h2>
-                        <form method="POST" class="register-form" id="register-form">
-                            <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="password" placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="password2"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="password2" id="password2" placeholder="Repeat your password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="signup-image">
-                        <figure><img src="assets/loginRegister/images/2.jpg" alt="sing up image"></figure>
+                <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="POST" autocomplete="off">
 
-                        <a href="login.php" class="signup-image-link" type="button">Login</a>
-                        <a href="index.php" class="signup-image-link back" type="button">Back to Home</a>
+                    <span class="login100-form-title">
+                        Sign Up
+                    </span>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="text" name="name" placeholder="Nama" autofocus>
+                        <span class="focus-input100"></span>
                     </div>
-                </div>
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="email" name="email" placeholder="Email" autofocus>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="password" name="password2" placeholder="Confirm Password">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn p-t-20 p-b-23">
+                        <button class="login100-form-btn" type="submit" name="signup" id="signup">
+                            Register
+                        </button>
+                    </div>
+
+                    <div class="flex-col-c p-t-70 p-b-40">
+                        <span class="txt1 p-b-9">
+                            Already have an account?
+                        </span>
+
+                        <a href="login.php" class="txt3">
+                            Sign in now
+                        </a>
+                    </div>
+                </form>
             </div>
-        </section>
-
-        
+        </div>
     </div>
 
-    <!-- JS -->
-    <script src="assets/loginRegister/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/loginRegister/js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+    <!--===============================================================================================-->
+    <script src="assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/login/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/login/vendor/bootstrap/js/popper.js"></script>
+    <script src="assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+
+</body>
+
 </html>

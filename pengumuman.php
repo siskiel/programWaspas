@@ -4,17 +4,17 @@
 // session_start();
 //koneksi ke database
 // include '../config/koneksi.php';
-if(!isset($_SESSION['calon_komandan']))
+if(!isset($_SESSION['calon_pelatih']))
 {
     echo "<script>alert('Anda Harus Login');</script>";
     echo "<script>location='login.php';</script>";
     header('location:login.php');
     exit();
 }
-$id_calon_komandan=$_SESSION["calon_komandan"]['id_calon_komandan'];
-// $ambil = $koneksi->query("SELECT * FROM calon_komandan WHERE id_calon_komandan='$id_calon_komandan'");
+$id_calon_pelatih=$_SESSION["calon_pelatih"]['id_calon_pelatih'];
+// $ambil = $koneksi->query("SELECT * FROM calon_pelatih WHERE id_calon_pelatih='$id_calon_pelatih'");
 // $pecah = $ambil->fetch_assoc();
-$ambil_rangking = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_komandan )) AS ranking FROM calon_komandan WHERE id_calon_komandan='$id_calon_komandan'"); 
+$ambil_rangking = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_pelatih )) AS ranking FROM calon_pelatih WHERE id_calon_pelatih='$id_calon_pelatih'"); 
 $pecah = $ambil_rangking->fetch_assoc();
 ?>
 
@@ -41,15 +41,7 @@ $pecah = $ambil_rangking->fetch_assoc();
         <div class="container">
 
             <div class="portfolio-details-container" data-aos="fade-up" data-aos-delay="100">
-
-                <!-- <?php if ($pecah['keterangan']=="Sesuai" ):  ?>
-                <img src="assets/home/img/benar.png" class="img-fluid" alt="">
-                <?php elseif ($pecah['keterangan']=="Tidak Sesuai" ):  ?>
-                <img src="assets/home/img/salah.png" class="img-fluid" alt="">
-                <?php else : ?>
-                <img src="assets/home/img/waiting.png" class="img-fluid" alt="">
-                <?php endif ?> -->
-                <img src="assets/home/img/pengumuman.png" class="img-fluid" alt="">
+                <h2> Data Telah selesai Di proses </h2>
             </div>
 
             <div class="portfolio-description">
@@ -58,11 +50,9 @@ $pecah = $ambil_rangking->fetch_assoc();
                 <div class="col-lg-12 ">
                     <div class="icon-boxes d-flex flex-column justify-content-center">
                         <?php if ($pecah['ranking']==1 ):  ?>
-                        <h5>Selamat Anda <strong>Terpilih Sebagai Komandan di Kodim 0201/BS Medan
-                                Medan</strong></h5>
+                        <h5>Selamat Anda <strong>Terpilih Sebagai Pelatih PSMS MEDAN</strong></h5>
                         <?php else :  ?>
-                        <h5>Mohon Maaf Anda <strong>Tidak Terpilih Sebagai Komandan di Kodim 0201 BS
-                                Medan</strong></h5>
+                        <h5>Mohon Maaf Anda <strong>Tidak Terpilih Sebagai Pelatih PSMS MEDAN</strong></h5>
                     </div>
                 </div>
                 <?php endif ?>

@@ -5,102 +5,96 @@ include 'config/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Login</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login | Kodim 0201/BS Medan</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="assets/loginRegister/fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="assets/loginRegister/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="assets/login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="assets/login/css/main.css">
+    <!--===============================================================================================-->
 </head>
-<style>
-    .button-back{
-  background-color: #ada871;
-  border: none;
-  color: white;
-  padding: 15px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 8px;
-  font-size: 12px;
-}
-.button-back:hover{
-    background-color: #68600c;
-}
-</style>
+
 <body>
 
-    <div class="main">
-
-                <!-- Sing in  Form -->
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="assets/loginRegister/images/1.jpg" alt="sing up image"></figure>
-                        <a href="register.php" class="signup-image-link">Create an account</a>
-                    </div>
-
-                    <div class="signin-form">
-                        <h2 class="form-title">Login</h2>
-                        <form method="POST" class="register-form" id="login-form">
-                            <?php 
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="POST" id="login-form">
+                    <?php 
 					if(isset($_POST['login']))
 					{
-						$ambil = $koneksi->query("SELECT * FROM calon_komandan WHERE email='$_POST[email]' 
-						AND password='$_POST[pass]'");
+						$ambil = $koneksi->query("SELECT * FROM calon_pelatih WHERE email='$_POST[email]' 
+						AND password='$_POST[password]'");
 						$yangcocok = $ambil->num_rows;
 						if ($yangcocok==1)
 						{
-							$_SESSION['calon_komandan']=$ambil->fetch_assoc();
+							$_SESSION['calon_pelatih']=$ambil->fetch_assoc();
 							echo "<div class='alert alert-info'>Login Berhasil</div>";
                              echo "<meta http-equiv='refresh' content='1;url=profil.php'>";
 					 
 
 						}
 						else{
-							echo "<script>alert('email atau paswrod salah, silahkan periksa kembali');</script>";
-                     echo "<script>location='login.php';</script>";
+                            echo "<div class='alert alert-info'>email atau paswrod salah, silahkan periksa kembali</div>";
+                             echo "<meta http-equiv='refresh' content='1;url=login.php'>";
+							
 						}
 						
 
 					}
-				?> 
-                            <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Input your Email" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Input your Password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
-                            <div class="form-group form-button">
-                                <a href="index.php" type="button" class="button-back">Back to home</a>
-                                <input type="submit" name="login" id="login" class="form-submit" value="Log in"/>
-                            </div>
-                        </form>
-                      
-                            
-                        
+				?>
+                    <span class="login100-form-title">
+                        Login Calon Pelatih
+                    </span>
 
+                    <div class="wrap-input100 m-b-16">
+                        <input class="input100" type="email" name="email" placeholder="Email@gmail.com" autofocus>
+                        <span class="focus-input100"></span>
                     </div>
-                </div>
-            </div>
-        </section>
 
+                    <div class="wrap-input100">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn p-t-20 p-b-23">
+                        <button class="login100-form-btn" type="submit" name="login" id="login">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="flex-col-c p-t-70 p-b-40">
+                        <span class="txt1 p-b-9">
+                            Don’t have an account?
+                        </span>
+
+                        <a href="register.php" class="txt3">
+                            Regiater now
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <!-- JS -->
-    <script src="assets/loginRegister/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/loginRegister/js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+    <!--===============================================================================================-->
+    <script src="assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/login/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="assets/login/vendor/bootstrap/js/popper.js"></script>
+    <script src="assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+
+</body>
+
 </html>

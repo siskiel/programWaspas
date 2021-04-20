@@ -1,48 +1,78 @@
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" class="footer-area">
+      <div class="footer-copyright">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-5">
+                      <div class="copyright text-center text-lg-left mt-10">
+                          <p class="text"> Created by <a style="color: #38f9d7" rel="nofollow"
+                                  href="https://uideck.con"> Fadil Fahrizal</a>
+                          </p>
+                          <p>
+                              &copy; Copyright<a style="color: #38f9d7" rel="nofollow" href="https://ayroui.com">PSMS
+                                  Medan</a></p>
+                      </div> <!--  copyright -->
+                  </div>
+                  <div class="col-lg-2">
+                      <div class="footer-logo text-center mt-10">
+                          <a href="index.html"><img src="assets/index/assets/images/1.png" alt="Logo"></a>
+                      </div> <!-- footer logo -->
+                  </div>
+                  <div class="col-lg-5">
+                      <ul class="social text-center text-lg-right mt-10">
+                          <li><a href="https://facebook.com/uideckHQ"><i class="lni-facebook-filled"></i></a></li>
+                          <li><a href="https://twitter.com/uideckHQ"><i class="lni-twitter-original"></i></a></li>
+                          <li><a href="https://instagram.com/uideckHQ"><i class="lni-instagram-original"></i></a></li>
+                          <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                      </ul> <!-- social -->
+                  </div>
+              </div> <!-- row -->
+          </div> <!-- container -->
+      </div> <!-- footer copyright -->
+  </footer>
+
+  <!--====== FOOTER FOUR PART ENDS ======-->
+
+  <!--====== BACK TOP TOP PART START ======-->
+
+  <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+  <!--====== BACK TOP TOP PART ENDS ======-->
+
+  <!--====== PART START ======-->
 
 
-    <div class="container d-md-flex py-4">
 
-      <div class="mr-md-auto text-center text-md-left">
-        <div class="copyright">
-          &copy; Copyright <strong><span>KODIM 0201/BS Medan</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/ -->
-          Designed by <a href="https://bootstrapmade.com/">Arif Setiawan</a>
-        </div>
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  <!--====== PART ENDS ======-->
+  <!--====== jquery js ======-->
+  <script src="assets/index/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="assets/index/assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <!--====== Bootstrap js ======-->
+  <script src="assets/index/assets/js/bootstrap.min.js"></script>
+  <script src="assets/index/assets/js/popper.min.js"></script>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/home/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/home/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/home/vendor/php-email-form/validate.js"></script>
-  <script src="assets/home/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/home/vendor/counterup/counterup.min.js"></script>
-  <script src="assets/home/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/home/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/home/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/home/vendor/aos/aos.js"></script>
+  <!--====== Slick js ======-->
+  <script src="assets/index/assets/js/slick.min.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/home/js/main.js"></script>
+  <!--====== Isotope js ======-->
+  <script src="assets/index/assets/js/isotope.pkgd.min.js"></script>
 
-</body>
+  <!--====== Images Loaded js ======-->
+  <script src="assets/index/assets/js/imagesloaded.pkgd.min.js"></script>
 
-</html>
+  <!--====== Magnific Popup js ======-->
+  <script src="assets/index/assets/js/jquery.magnific-popup.min.js"></script>
+
+  <!--====== Scrolling js ======-->
+  <script src="assets/index/assets/js/scrolling-nav.js"></script>
+  <script src="assets/index/assets/js/jquery.easing.min.js"></script>
+
+  <!--====== wow js ======-->
+  <script src="assets/index/assets/js/wow.min.js"></script>
+
+  <!--====== Main js ======-->
+  <script src="assets/index/assets/js/main.js"></script>
+
+  </body>
+
+  </html>

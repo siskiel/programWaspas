@@ -2,7 +2,7 @@
 
 ?>
 
-<h2 class="text-center"> Laporan Hasil Perhitungan Waspas dari Pemilihan Komandan Kodim 0201 BS Madan </h2>
+<h2 class="text-center"> Laporan Hasil Perhitungan Waspas dari Pemilihan Calon Pelatih PSMS Medan </h2>
 <hr>
 <table class="table table-bordered">
     <thead>
@@ -17,7 +17,7 @@
     <tbody>
         <?php $nomor = 1 ;
        
-         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_komandan )) AS ranking FROM calon_komandan"); 
+         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_pelatih )) AS ranking FROM calon_pelatih"); 
        ?>
         <?php while ($detail = $ambil->fetch_assoc()) { ?>
         <tr>

@@ -1,55 +1,49 @@
-<?php
+ <?php
 
+    $ambil_kriteria = $koneksi->query("SELECT * FROM kriteria");
+    $ambil_calon_pelatih = $koneksi->query("SELECT * FROM calon_pelatih WHERE id_calon_pelatih='$_GET[id]'");
+    //    hitung jumlah data kriteria []
+    $j_kriteria = mysqli_num_rows($ambil_kriteria);
+    // hitung jumlah data calon_pelatih
+    $j_calon_pelatih = mysqli_num_rows($ambil_calon_pelatih);
     // ambil nilai kriteria
     $kriteria = [];
     $result = $koneksi->query('SELECT * FROM kriteria ORDER BY id_kriteria ASC');
     $index = 0;
-    while($row = mysqli_fetch_array($result)):
+    while ($row = mysqli_fetch_array($result)) :
         $kriteria['id_kriteria'][$index] = $row['id_kriteria'];
         $kriteria['kode_kriteria'][$index] = $row['kode_kriteria'];
         $kriteria['nama_kriteria'][$index] = $row['nama_kriteria'];
         $kriteria['bobot'][$index] = $row['bobot'];
 
-        $index+=1;
+        $index += 1;
     endwhile;
-
-    // mengambil nilai alternatif
-    $alternatif = null;
-    $result = $koneksi->query('SELECT * FROM calon_komandan WHERE id_calon_komandan="'.$_GET['id_calon_komandan'].'"');
-    if($result->num_rows > 0) {
-        $alternatif = $result->fetch_assoc();
-    } else {
-        echo "<script>";
-        echo "alert('Data yang anda pilih tidak ditemukan!');";
-        echo "window.location = 'index.php?halaman=penilaian';";
-        echo "</script>";
-    }
-
-    // ambil penilaian dari sialternatif
-    $result = $koneksi->query('SELECT * FROM penilaian WHERE id_calon_komandan="'.$_GET['id_calon_komandan'].'" ORDER BY id_kriteria ASC');
-    if($result->num_rows > 0) {
-        while($row = mysqli_fetch_array($result)):
-            $penilaian['id_penilaian'][$row['id_kriteria']] = $row['id_penilaian'];
-            $penilaian['nilai_bobot'][$row['id_kriteria']] = $row['nilai_bobot'];
-        endwhile;
     
-        $alternatif['penilaian'] = $penilaian;
-    } else {
-        echo "<script>";
-        echo "alert('Data nilai pada alternatif yang anda pilih tidak ditemukan!. Silahkan tambah terlebih dahulu!');";
-        echo "window.location = 'index.php?halaman=penilaiantambah';";
-        echo "</script>";
-    }
-
-?>
-
- <h2>Edit Penilaian <strong> <?= $alternatif['nama']?></strong> </h2>
+    // ambil nilai sub kriteria
+    $subkriteria = [];
+    $result = $koneksi->query('SELECT * FROM sub_kriteria ORDER BY id_kriteria ASC');
+    $index = 0;
+    while ($row = mysqli_fetch_array($result)) :
+        $subkriteria['id_sub_kriteria'][$index] = $row['id_sub_kriteria'];
+        $subkriteria['id_kriteria'][$index] = $row['id_kriteria'];
+        $subkriteria['nama_sub'][$index] = $row['nama_sub'];
+        $subkriteria['bobot_sub'][$index] = $row['bobot_sub'];
+        $index += 1;
+    endwhile;
+    // print_r($subkriteria['nama_sub'])
+    ?>
+ <?php while ($pecah = $ambil_calon_pelatih->fetch_assoc()) { ?>
+ <h2>Edit Penilaian <strong> <?= $pecah['nama']?></strong> </h2>
+ <?php } ?>
  <a href="index.php?halaman=penilaian" class=" btn btn-warning  pull-right">
      << Kembali </a>
          <br>
          <br>
+         <br>
+         <br>
          <form method="post">
-<br>
+             <br>
+             <br>
 
              <table class="table table-bordered">
                  <thead>
@@ -58,56 +52,89 @@
                      <th>Kriteria</th>
                      <th>Bobot Kriteria</th>
                  </thead>
-                 
                  <tbody>
-                    <?php
-            
-                        $no=1;
+                     <?php $no = 0 ;?>
+                     <tr>
+                         <td>1</td>
+                         <td><?php echo $kriteria['kode_kriteria'][0]; ?></td>
+                         <td><?php echo $kriteria['nama_kriteria'][0]; ?></td>
+                         <td><select name="c1">
 
-                        foreach ($kriteria['id_kriteria'] as $key1 => $data1):
-                    ?>
-                            <tr>
-                                <td><?= $no ?></td>
-                                <td><?= $kriteria['kode_kriteria'][$key1] ?></td>
-                                <td>
-                                    <input type='text' name ='kriteria' class='form-control' value='<?= $kriteria['nama_kriteria'][$key1] ?>' readonly>
-                                </td>
-                                <td>
-                                    <select name="nilai_bobot[<?= $data1 ?>]" id="nilai_bobot" class="form-control">
-                                        <option disabled="disabled" selected>--Pilih--</option>
-                                        <option value="4" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 4) ? "selected" : "" ?>> Sangat Baik</option>
-                                        <option value="3" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 3) ? "selected" : "" ?>> Baik</option>
-                                        <option value="2" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 2) ? "selected" : "" ?>> Cukup Baik</option>
-                                        <option value="1" <?= ($alternatif['penilaian']['nilai_bobot'][$data1] == 1) ? "selected" : "" ?>> Tidak Baik</option>
-                                    </select>
-                                </td>
-                            </tr>
-                    <?php
-                            $no++;
-                        endforeach;
+                                 <option disabled="disabled" selected="selected">--Pilih--</option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][0]?>">
+                                     <?php echo $subkriteria['nama_sub'][0]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][1]?>">
+                                     <?php echo $subkriteria['nama_sub'][1]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][2]?>">
+                                     <?php echo $subkriteria['nama_sub'][2]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][3]?>">
+                                     <?php echo $subkriteria['nama_sub'][3]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][4]?>">
+                                     <?php echo $subkriteria['nama_sub'][4]?></option>
 
-                    ?>
+                                 <?php  ; ?>
+                             </select></td>
+                     </tr>
+                     <tr>
+                         <td>2</td>
+                         <td><?php echo $kriteria['kode_kriteria'][1]; ?></td>
+                         <td><?php echo $kriteria['nama_kriteria'][1]; ?></td>
+                         <td><select name="c2">
+                                 <option disabled="disabled" selected="selected">--Pilih--</option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][5]?>">
+                                     <?php echo $subkriteria['nama_sub'][5]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][6]?>">
+                                     <?php echo $subkriteria['nama_sub'][6]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][7]?>">
+                                     <?php echo $subkriteria['nama_sub'][7]?></option>
+
+                             </select></td>
+                     </tr>
+                     <tr>
+                         <td>3</td>
+                         <td><?php echo $kriteria['kode_kriteria'][2]; ?></td>
+                         <td><?php echo $kriteria['nama_kriteria'][2]; ?></td>
+                         <td><select name="c3">
+                                 <option disabled="disabled" selected="selected">--Pilih--</option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][8]?>">
+                                     <?php echo $subkriteria['nama_sub'][8]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][9]?>">
+                                     <?php echo $subkriteria['nama_sub'][9]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][10]?>">
+                                     <?php echo $subkriteria['nama_sub'][10]?></option>
+                                 <?php  ; ?>
+                             </select></td>
+                     </tr>
+                     <tr>
+                         <td>4</td>
+                         <td><?php echo $kriteria['kode_kriteria'][3]; ?></td>
+                         <td><?php echo $kriteria['nama_kriteria'][3]; ?></td>
+                         <td><select name="c4">
+                                 <option disabled="disabled" selected="selected">--Pilih--</option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][11]?>">
+                                     <?php echo $subkriteria['nama_sub'][11]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][12]?>">
+                                     <?php echo $subkriteria['nama_sub'][12]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][13]?>">
+                                     <?php echo $subkriteria['nama_sub'][13]?></option>
+
+                                 <?php  ; ?>
+                             </select></td>
+                     </tr>
+                     <tr>
+                         <td>5</td>
+                         <td><?php echo $kriteria['kode_kriteria'][4]; ?></td>
+                         <td><?php echo $kriteria['nama_kriteria'][4]; ?></td>
+                         <td><select name="c5">
+                                 <option disabled="disabled" selected="selected">--Pilih--</option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][14]?>">
+                                     <?php echo $subkriteria['nama_sub'][14]?></option>
+                                 <option value="<?php echo $subkriteria['bobot_sub'][15]?>">
+                                     <?php echo $subkriteria['nama_sub'][15]?></option>
+                                 <?php  ; ?>
+                             </select></td>
+                     </tr>
                  </tbody>
              </table>
-             
-             <button class="btn btn-primary" name="Ubah">Ubah</button>
+             <button class="btn btn-primary" name="save">Simpan</button>
          </form>
-
-         <?php
-         
-            if (isset($_POST['Ubah'])) {
-                $bobot = $_POST['nilai_bobot'];
-
-                foreach ($bobot as $key => $data) {
-                    $koneksi->query("UPDATE penilaian SET nilai_bobot='".$data."' WHERE id_calon_komandan='".$_GET['id_calon_komandan']."' AND id_kriteria='".$key."'");
-
-                    echo "<div class='alert alert-info'>Data tersimpan</div>";
-                }
-
-                echo "<script>";
-                echo "alert('Data berhasil diperbarui!');";
-                echo "window.location = 'index.php?halaman=penilaian';";
-                echo "</script>";
-            }
-    
-        ?>

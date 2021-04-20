@@ -1,5 +1,5 @@
 <h2> Data Kriteria</h2>
-<a href="index.php?halaman=kriteriatambah" class="btn btn-primary">Tambah kriteria</a>
+<!-- <a href="index.php?halaman=kriteriatambah" class="btn btn-primary">Tambah kriteria</a> -->
 <!-- <a href="cetakproduk.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a> -->
 <br>
 <br>

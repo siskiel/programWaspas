@@ -1,110 +1,45 @@
-<?php
-
-// ambil nilai kriteria
-$kriteria = [];
-$result = $koneksi->query('SELECT * FROM kriteria ORDER BY id_kriteria ASC');
-$index = 0;
-while($row = mysqli_fetch_array($result)):
-    $kriteria['id_kriteria'][$index] = $row['id_kriteria'];
-    $kriteria['kode_kriteria'][$index] = $row['kode_kriteria'];
-    $kriteria['nama_kriteria'][$index] = $row['nama_kriteria'];
-    $kriteria['bobot'][$index] = $row['bobot'];
-
-    $index+=1;
-endwhile;
-
-// mengambil nilai alternatif
-$alternatif = [];
-$result = $koneksi->query('SELECT * FROM calon_komandan ORDER BY id_calon_komandan ASC');
-$index = 0;
-while($row = mysqli_fetch_array($result)):
-    $alternatif['id_calon_komandan'][$index] = $row['id_calon_komandan'];
-    $alternatif['nama'][$index] = $row['nama'];
-
-    $index+=1;
-endwhile;
-
-// ambil nilai penilaian setiap alternatif
-foreach ($alternatif['id_calon_komandan'] as $key => $data) {
-    $penilaian = [];
-    $result = $koneksi->query('SELECT * FROM penilaian WHERE id_calon_komandan="'.$data.'" ORDER BY id_kriteria ASC');
-
-    if($result->num_rows > 0) {
-        while($row = mysqli_fetch_array($result)):
-            $penilaian['id_penilaian'][$row['id_kriteria']] = $row['id_penilaian'];
-            $penilaian['nilai_bobot'][$row['id_kriteria']] = $row['nilai_bobot'];
-        endwhile;
-    
-        $alternatif['penilaian'][$key] = $penilaian;
-    }
-}
-
-?>
-
 <h2> Data Penilaian</h2>
 <a href="index.php?halaman=penilaiantambah" class="btn btn-primary">Tambah Penilaian</a>
-<a href="cetak_datanilai.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>
+<!-- <a href="cetakproduk.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>  -->
 <br>
 <br>
-
-<table class="table table-bordered table-hover">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>No</th>
-            <th>Nama Calon Komandan</th>
-
-            <?php
-                for ($i=0; $i < count($kriteria['id_kriteria']); $i++) :
-            ?>
-            <th><?php echo $kriteria['kode_kriteria'][$i]; ?></th>
-            <?php
-                endfor;
-            ?>
-
+            <th>Nama Calon Pelatih</th>
+            <th>C1</th>
+            <th>C2</th>
+            <th>C3</th>
+            <th>C4</th>
+            <th>C5</th>
             <th>Aksi</th>
         </tr>
     </thead>
-
     <tbody>
-        <?php
-            if(!isset($alternatif['penilaian'])) :
-        ?>
+        <?php $nomor = 1; ?>
+        <?php $ambil = $koneksi->query("SELECT * FROM penilaian JOIN calon_pelatih ON penilaian.id_calon_pelatih=calon_pelatih.id_calon_pelatih"); ?>
+        <?php while ($pecah = $ambil->fetch_assoc()) { ?>
         <tr>
-            <td colspan="<?php echo (3 + count($kriteria['kode_kriteria'])) ?>" align="center">Tidak Ada Data Penilaian
+            <td><?php echo $nomor; ?></td>
+            <td><?php echo $pecah['nama']; ?></td>
+            <td><?php echo $pecah['C1']; ?></td>
+            <td><?php echo $pecah['C2']; ?></td>
+            <td><?php echo $pecah['C3']; ?></td>
+            <td><?php echo $pecah['C4']; ?></td>
+            <td><?php echo $pecah['C5']; ?></td>
+
+
+            <td>
+                <a href="index.php?halaman=penilaianedit&id=<?php echo $pecah['id_calon_pelatih']; ?>"
+                    class="btn-warning btn">Edit</a>
+                <a href="index.php?halaman=penilaianhapus&id=<?php echo $pecah['id_calon_pelatih']; ?>"
+                    class="btn-danger btn"
+                    onclick="return confirm('Apakah yakin ingin menghapus data pelatih?');">Hapus</a>
             </td>
         </tr>
-        <?php
-            else:
-                $index = 1;
-                foreach ($alternatif['penilaian'] as $key1 => $data) {
-                    if(count($data) < 1) {
-                        continue;
-                    }
-
-                    echo "<tr>";
-                    echo "<td>" . $index . "</td>";
-                    echo "<td>" . $alternatif['nama'][$key1] . "</td>";
-
-                    foreach ($kriteria['id_kriteria'] as $key2 => $data2) {
-                        if($data2 == "" || $data2 == null) {
-                            echo "<td> Nilai Kosong </td>";
-                        } else {
-                            echo "<td>" . $data['nilai_bobot'][$data2] . "</td>";
-                        }
-                    }
-
-                    echo "<td>";
-                    echo '<a href="index.php?halaman=penilaianedit&id_calon_komandan='.$alternatif['id_calon_komandan'][$key1].'" class="btn-warning btn">Edit</a>  ';
-                    echo '<a href="index.php?halaman=penilaianhapus&id_calon_komandan='.$alternatif['id_calon_komandan'][$key1].'" class="btn-danger btn" onclick="return confirm(\'Apakah yakin ingin menghapus data penilaian?\');">Hapus</a>';
-                    echo "</td>";
-
-                    echo "</tr>";
-
-                    $index++;
-                }
-            endif;
-        ?>
+        <?php $nomor++; ?>
+        <?php } ?>
     </tbody>
 </table>
-
-<a href="index.php?halaman=prosesWaspas" class="btn btn-primary">Proses Perhitungan</a>
+<a href="index.php?halaman=prosesWaspas" class="btn btn-success">Proses Perhitungan</a>

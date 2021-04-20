@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Penilai | Kodim 0201/BS Medan</title>
+    <title>SPK - Calon Pelatih PSMS Medan</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -38,36 +38,31 @@ if (!isset($_SESSION['admin'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"> Penilai</a>
+                <a class="navbar-brand" href="index.php">Administrator</a>
 
             </div>
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"><span id="tanggalwaktu"></span> <a href="index.php?halaman=logout"
-                    class="btn btn-danger square-btn-adjust" style="background-color: #009B50;"> Logout</a> </div>
+font-size: 16px;"><span id="tanggalwaktu"></span> </div>
         </nav>
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
+
+            <div class="sidebar-collapse" id="wrapper">
                 <ul class="nav" id="main-menu">
-                    <li class="text-center">
-                        <img src="assets/img/user.png" class="user-image img-responsive" />
-                    </li>
-
-
                     <li>
                         <a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="index.php?halaman=calonKomandan"><i class="fa fa-user"></i>Data Calon komandan</a>
+                        <a href="index.php?halaman=calonPelatih"><i class="fa fa-user"></i>Data Calon Pelatih</a>
                     </li>
                     <li>
                         <a href="index.php?halaman=kriteria"><i class="fa fa-file"></i> Data Kriteria</a>
                     </li>
-                    <!-- <li>
+                    <li>
                         <a href="index.php?halaman=subkriteria"><i class="fa fa-file"></i> Data Sub-Kriteria</a>
-                    </li> -->
+                    </li>
                     <li>
                         <a href="index.php?halaman=penilaian"><i class="fa fa-check-square"></i> Data Penilaian</a>
                     </li>
@@ -87,12 +82,12 @@ font-size: 16px;"><span id="tanggalwaktu"></span> <a href="index.php?halaman=log
             <div id="page-inner">
                 <?php
                 if (isset($_GET['halaman'])) {
-                    if ($_GET['halaman'] == "calonKomandan") {
-                        include 'calonKomandan.php';
-                    } elseif ($_GET['halaman'] == "calonKomandanDetail") {
-                        include 'calonKomandanDetail.php';
-                    } elseif ($_GET['halaman'] == "calonKomandanHapus") {
-                        include 'calonKomandanHapus.php';
+                    if ($_GET['halaman'] == "calonPelatih") {
+                        include 'calonPelatih.php';
+                    } elseif ($_GET['halaman'] == "calonPelatihDetail") {
+                        include 'calonPelatihDetail.php';
+                    } elseif ($_GET['halaman'] == "calonPelatihHapus") {
+                        include 'calonPelatihHapus.php';
                     } elseif ($_GET['halaman'] == "kriteria") {
                         include 'kriteria.php';
                     } elseif ($_GET['halaman'] == "subkriteria") {
@@ -149,6 +144,13 @@ font-size: 16px;"><span id="tanggalwaktu"></span> <a href="index.php?halaman=log
         document.getElementById("tanggalwaktu").innerHTML = hariarray[hari] + " " + tanggal + " " + bulanarray[bulan] +
             " " + tahun + " Jam " + ((tw.getHours() < 10) ? "0" : "") + tw.getHours() + ":" + ((tw.getMinutes() < 10) ?
                 "0" : "") + tw.getMinutes() + (" WIB ");
+        </script>
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
         </script>
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

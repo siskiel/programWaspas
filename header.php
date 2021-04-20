@@ -2,78 +2,132 @@
 //koneksi ke database
 include 'config/koneksi.php';
 ?>
-<!DOCTYPE html>
+<?php session_start(); ?>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SPK - KODIM 0201/BS Medan</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Favicons -->
-  <link href="assets/home/img/icon.png" rel="icon">
-  <link href="assets/home/img/icon.png" rel="apple-touch-icon">
+    <!--====== Title ======-->
+    <title>SPK - Calon Pelatih PSMS Medan</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/index/assets/images/1.png" type="image/png">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/home/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/home/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/home/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/home/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/home/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/home/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/home/vendor/aos/aos.css" rel="stylesheet">
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="assets/index/assets/css/bootstrap.min.css">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/home/css/style.css" rel="stylesheet">
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="assets/index/assets/css/LineIcons.css">
 
-  <!-- =======================================================
-  * Template Name: Bethany - v2.0.0
-  * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="assets/index/assets/css/magnific-popup.css">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="assets/index/assets/css/slick.css">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="assets/index/assets/css/animate.css">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="assets/index/assets/css/default.css">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="assets/index/assets/css/style.css">
+
+
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container">
-      <div class="header-container d-flex align-items-center">
-        <div class="logo mr-auto">
-          <h1 class="text-light"><a href="index.html"><span>KODIM O201/BS</span></a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/home/img/logo.png" alt="" class="img-fluid"></a>-->
+    <!--====== PRELOADER PART START ======-->
+
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <nav class="nav-menu d-none d-lg-block">
-          <ul>
-            <li class="active"><a href="#header">Home</a></li>
-            <li><a href="index.php#about">About</a></li>
-            <li><a href="index.php#services">Profil Kodim</a></li>
-            <li><a href="index.php#why-us">Data Calon Komandan</a></li>
-         
-            <li><a href="index.php#contact">Contact</a></li>
-            <?php session_start(); ?>
-			<!-- jika sudah login ada session calon komandan -->
-      <?php if (isset($_SESSION["calon_komandan"])): ?>
-        <li><a href="profil.php">Profil</a></li>
-        <li><a href="pengumuman.php">Pegumuman</a></li>
-                    <li class="get-started"><a href="logout.php">Logout</a></li>
-
-                    <!-- selain itu tampilan belum login  -->
-			<?php else: ?>
-            <li><a href="register.php">Registrasi</a></li>
-            <li class="get-started"><a href="login.php">Login</a></li>
-            <?php endif ?>
-          </ul>
-        </nav><!-- .nav-menu -->
-      </div><!-- End Header Container -->
     </div>
-  </header><!-- End Header -->
+
+    <!--====== PRELOADER PART ENDS ======-->
+
+    <!--====== NAVBAR PART START ======-->
+
+    <section class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <h2 class="text-light">PSMS</h2>
+                            </a>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" href="#home">Beranda</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#about">Tentang</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#portfolio">Sejarah PSMS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#pricing">Data Calon Pelatih</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="#contact">Contact</a>
+                                    </li>
+
+                                    <!-- jika sudah login ada session calon pelatih -->
+                                    <?php if (isset($_SESSION['calon_pelatih'])): ?>
+                                    <li class="nav-item"><a class="page-scroll" href="profil.php">Profil</a></li>
+                                    <li class="nav-item"><a class="page-scroll" href="pengumuman.php">Pegumuman</a></li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="logout.php">Logout</a>
+                                    </li>
+                                    <?php else: ?>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="login.php">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="page-scroll" href="register.php">Daftar</a>
+                                    </li>
+                                    <?php endif ?>
+                                </ul>
+                            </div>
+
+                        </nav> <!-- navbar -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- navbar area -->
+
+
+        <!--====== NAVBAR PART ENDS ======-->

@@ -7,7 +7,7 @@ include '../config/koneksi.php';
 <html lang="en">
 
 <head>
-    <title>Login Penilai | KODIM 0201/BS Medan</title>
+    <title>Login Administaror | PSMS Medan</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -62,7 +62,7 @@ include '../config/koneksi.php';
 				?>
 
                     <span class="login100-form-title p-b-43">
-                        Login Penilai
+                        Login Administrator
                     </span>
 
 

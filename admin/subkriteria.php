@@ -1,6 +1,6 @@
 <h2> Data Sub-Kriteria</h2>
 <a href="index.php?halaman=subkriteriatambah" class="btn btn-primary">Tambah Data Sub kriteria</a>
-<a href="cetakproduk.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a> 
+<a href="cetakproduk.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>
 <br>
 <br>
 <table class="table table-bordered">
@@ -11,7 +11,7 @@
             <th>Nama Kriteria</th>
             <th>Nama Sub-Kriteria</th>
             <th>Nilai</th>
-            
+
             <th>Aksi</th>
         </tr>
     </thead>
@@ -29,11 +29,14 @@
             <td><?php echo $pecah['nama_kriteria']; ?></td>
             <td><?php echo $pecah['nama_sub'];?></td>
             <td><?php echo $pecah['bobot_sub'];?></td>
-           
-                        <td>
-                <a href="index.php?halaman=subkriteriaubah&id=<?php echo $pecah['id_subkriteria'];?>" class="btn-warning btn">Edit</a>
-                <a href="index.php?halaman=subkriteriahapus&id=<?php echo $pecah['id_subkriteria'];?>" class="btn-danger btn" onclick="return confirm('Apakah yakin ingin menghapus data sub-kriteria?');" >Hapus</a>
-            </td> 
+
+            <td>
+                <a href="index.php?halaman=subkriteriaubah&id=<?php echo $pecah['id_sub_kriteria'];?>"
+                    class="btn-warning btn">Edit</a>
+                <a href="index.php?halaman=subkriteriahapus&id=<?php echo $pecah['id_sub_kriteria'];?>"
+                    class="btn-danger btn"
+                    onclick="return confirm('Apakah yakin ingin menghapus data sub-kriteria?');">Hapus</a>
+            </td>
         </tr>
         <?php $nomor++;
         $c++;?>

@@ -1,3 +1,3 @@
 <?php
-$koneksi = new mysqli("localhost","root","","waspas_kodim");
+$koneksi = new mysqli("localhost","root","","database_waspas");
 ?>

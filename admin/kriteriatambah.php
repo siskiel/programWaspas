@@ -25,15 +25,16 @@
         <form method="post">
             <div class="form-group">
                 <label>Kode Kriteria</label>
-                <input type="text" class="form-control" name="kode" required="required">
+                <input type="text" class="form-control" name="kode" required="required" readonly
+                    value="<?php echo $kodeBarang ?>">
             </div>
             <div class="form-group">
                 <label>Nama Kriteria</label>
-                <input type="text" class="form-control" name="nama">
+                <input type="text" class="form-control" name="nama" required="required">
             </div>
             <div class="form-group">
                 <label>Bobot</label>
-                <input type="double" class="form-control" name="bobot">
+                <input type="double" class="form-control" name="bobot" required="required">
             </div>
             <button class="btn btn-primary" name="save">Simpan</button>
         </form>
