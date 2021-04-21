@@ -355,7 +355,7 @@ endwhile;
             <th>No</th>
             <th>Nama Calon Pelatih</th>
             <th>Hasil</th>
-            <th>rangkin</th>
+            <th>Rangking</th>
         </tr>
     </thead>
     <tbody>

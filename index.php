@@ -18,7 +18,7 @@ include 'header.php';   ?>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-xl-6 col-lg-7 col-sm-10">
-                                    <h2 class="carousel-title">Sistem Pakar Pendukung Keputusan Menentukan Calon
+                                    <h2 class="carousel-title">Sistem Pendukung Keputusan Menentukan Calon
                                         Pelatih PSMS Medan</h2>
                                     <ul class="carousel-btn rounded-buttons">
                                         <li><a class="main-btn rounded-three" href="#">Daftar</a>

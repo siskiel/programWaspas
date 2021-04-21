@@ -22,7 +22,7 @@ p {
 }
 </style>
 <body>
-    <h2 class="text-center">Laporan Hasil Perhitungan Metode Waspas Pemilihan Calon Komandan 0201/BS Medan</h2>
+    <h2 class="text-center">Laporan Hasil Perhitungan Metode Waspas Pemilihan Calon Pelatih PSMS Medan</h2>
 
     <table class="table table-bordered">
     <thead >
@@ -37,7 +37,7 @@ p {
     <tbody>';
     $nomor=1;
      
-         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_komandan )) AS ranking FROM calon_komandan"); ;
+         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_pelatih )) AS ranking FROM calon_pelatih"); ;
          while ($detail = $ambil->fetch_assoc()) {   
               if ($detail['ranking']==1 ){
                   $detailString = '<strong>Terpilih</strong>';
