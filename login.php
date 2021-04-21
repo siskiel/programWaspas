@@ -79,6 +79,9 @@ include 'config/koneksi.php';
                         <a href="register.php" class="txt3">
                             Regiater now
                         </a>
+                        <a href="index.php" class="txt2">
+                            Kembali
+                        </a>
                     </div>
                 </form>
             </div>

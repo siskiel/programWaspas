@@ -34,12 +34,12 @@
             <div class="form-group">
                 <label>Pengalaman Melatih</label>
                 <input type="double" class="form-control" name="pengalaman_melatih" required="required"
-                    value="<?php echo $detail['pengalaman_melatih']; ?>" readonly>
+                    value="<?php echo $detail['pengalaman_melatih']; ?> Tahun" readonly>
             </div>
             <div class="form-group">
                 <label>Pengalaman Bermain</label>
                 <input type="double" class="form-control" name="pengalaman_bermain" required="required"
-                    value="<?php echo $detail['pengalaman_bermain']; ?>" readonly>
+                    value="<?php echo $detail['pengalaman_bermain']; ?> Tahun" readonly>
             </div>
             <div class="form-group">
                 <label>Alamat</label>

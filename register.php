@@ -96,6 +96,9 @@ include 'config/koneksi.php';
                         <a href="login.php" class="txt3">
                             Sign in now
                         </a>
+                        <a href="index.php" class="txt2">
+                            Kembali
+                        </a>
                     </div>
                 </form>
             </div>

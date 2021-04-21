@@ -91,7 +91,7 @@ include '../config/koneksi.php';
                     </div>
                 </form>
 
-                <div class="login100-more" style="background-image: url('assets/login/images/01.jpg');">
+                <div class="login100-more" style="background-image: url('assets/login/images/12.jpg');">
                 </div>
             </div>
         </div>
