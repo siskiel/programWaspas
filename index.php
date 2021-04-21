@@ -91,67 +91,17 @@ include 'header.php';   ?>
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-8">
                 <div class="about-image text-center wow fadeInUp" data-wow-duration="1.5s" data-wow-offset="100">
-                    <img src="assets/index/assets/images/services.png" alt="services">
+                    <img src="assets/index/assets/images/51.png" alt="services">
                 </div>
                 <div class="section-title text-center mt-30 pb-40">
-                    <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">The future of
-                        designing starts here</h4>
-                    <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">An open platform for
-                        presentations and content collaboration. Sign up to get early access.</p>
+                    <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">PSMS Medan</h4>
+                    <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Persatuan Sepak Bola Medan
+                        Sekitarnya atau biasa disingkat PSMS Medan adalah sebuah klub sepak bola Indonesia yang berbasis
+                        di Medan, Sumatra Utara. PSMS Medan saat ini bermain di Liga 2 Indonesia.</p>
                 </div> <!-- section title -->
             </div>
         </div> <!-- row -->
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                    <div class="about-icon">
-                        <img src="assets/index/assets/images/icon-1.png" alt="Icon">
-                    </div>
-                    <div class="about-content media-body">
-                        <h4 class="about-title">Powerful templates</h4>
-                        <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and
-                            high-quality content that is aligned.</p>
-                    </div>
-                </div> <!-- single about -->
-            </div>
-            <div class="col-lg-6">
-                <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.4s">
-                    <div class="about-icon">
-                        <img src="assets/index/assets/images/icon-2.png" alt="Icon">
-                    </div>
-                    <div class="about-content media-body">
-                        <h4 class="about-title">Designed for everyone</h4>
-                        <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and
-                            high-quality content that is aligned.</p>
-                    </div>
-                </div> <!-- single about -->
-            </div>
-            <div class="col-lg-6">
-                <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.6s">
-                    <div class="about-icon">
-                        <img src="assets/index/assets/images/icon-3.png" alt="Icon">
-                    </div>
-                    <div class="about-content media-body">
-                        <h4 class="about-title">Work anywhere</h4>
-                        <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and
-                            high-quality content that is aligned.</p>
-                    </div>
-                </div> <!-- single about -->
-            </div>
-            <div class="col-lg-6">
-                <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.8s">
-                    <div class="about-icon">
-                        <img src="assets/index/assets/images/icon-4.png" alt="Icon">
-                    </div>
-                    <div class="about-content media-body">
-                        <h4 class="about-title">Updated in real time</h4>
-                        <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and
-                            high-quality content that is aligned.</p>
-                    </div>
-                </div> <!-- single about -->
-            </div>
-        </div> <!-- row -->
     </div> <!-- container -->
 </section>
 
@@ -164,159 +114,26 @@ include 'header.php';   ?>
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section-title text-center pb-20">
-                    <h3 class="title">Our Portfolio</h3>
-                    <p class="text">Stop wasting time and money designing and managing a website that doesn’t get
-                        results. Happiness guaranteed!</p>
+                    <h3 class="title">Sejarah PSMS Medan</h3>
+                    <p class="text">PSMS Medan dirikan pada tanggal 21 April 1950. Meski demikian sejak tahun 1930 telah
+                        berdiri klub Medansche Voetbal Club (MSV) yang diyakini merupakan embrio PSMS. Sejak dahulu kota
+                        Medan dikenal dunia oleh karena perkebunan tembakau Delinya. Tak heran bahwasannya logo PSMS
+                        berupa "daun" dan "bunga tembakau Deli".</p>
+                    <p>PSMS Medan dikenal dengan tipe permainan khas rap-rap yakni sepak bola yang berkarakter keras,
+                        cepat dan ngotot namun tetap bermain bersih menjunjung sportivitas. Inilah yang kerap
+                        ditunjukkan oleh tim berjuluk "Ayam Kinantan" ini.
+                    </p>Menjelang digelarnya Liga Super Indonesia pada 12 Juli 2008, tim ini masih dipayungi dengan
+                    polemik internal antar pengurus tim dengan pihak pengelola yang mencuatkan pengunduran diri PSMS
+                    Medan dari ajang LSI 2008 di mana akhirnya pada tanggal 10 Juli 2008 Badan Liga Indonesia memutuskan
+                    untuk tetap mengikutsertakan PSMS Medan mengikuti ajang Liga Super Indonesia meski harus menggunakan
+                    Stadion Gelora Bung Karno di Jakarta pada paruh musim pertama setelah pihak pengelola setuju memberi
+                    kompensasi sebesar Rp. 10 miliar sebagai dana renovasi infrastruktur Stadion Teladan, Medan.
+                    <p>
+                    </p>
                 </div> <!-- row -->
             </div>
         </div> <!-- row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="portfolio-menu pt-30 text-center">
-                    <ul>
-                        <li data-filter="*" class="active">ALL WORK</li>
-                        <li data-filter=".branding-3">BRANDING</li>
-                        <li data-filter=".marketing-3">MARKETING</li>
-                        <li data-filter=".planning-3">PLANNING</li>
-                        <li data-filter=".research-3">RESEARCH</li>
-                    </ul>
-                </div> <!-- portfolio menu -->
-            </div>
-        </div> <!-- row -->
-        <div class="row grid">
-            <div class="col-lg-4 col-sm-6 branding-3 planning-3">
-                <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                    <div class="portfolio-image">
-                        <img src="assets/index/assets/images/portfolio-1.png" alt="">
-                        <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                            <div class="portfolio-content">
-                                <div class="portfolio-icon">
-                                    <a class="image-popup" href="assets/images/portfolio-1.png"><i
-                                            class="lni-zoom-in"></i></a>
-                                </div>
-                                <div class="portfolio-icon">
-                                    <a href="#"><i class="lni-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-text">
-                        <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                        <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                    </div>
-                </div> <!-- single portfolio -->
-            </div>
-            <div class="col-lg-4 col-sm-6 marketing-3 research-3">
-                <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                    <div class="portfolio-image">
-                        <img src="assets/index/assets/images/portfolio-2.png" alt="">
-                        <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                            <div class="portfolio-content">
-                                <div class="portfolio-icon">
-                                    <a class="image-popup" href="assets/images/portfolio-2.png"><i
-                                            class="lni-zoom-in"></i></a>
-                                </div>
-                                <div class="portfolio-icon">
-                                    <a href="#"><i class="lni-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-text">
-                        <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                        <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                    </div>
-                </div> <!-- single portfolio -->
-            </div>
-            <div class="col-lg-4 col-sm-6 branding-3 marketing-3">
-                <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
-                    <div class="portfolio-image">
-                        <img src="assets/index/assets/images/portfolio-3.png" alt="">
-                        <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                            <div class="portfolio-content">
-                                <div class="portfolio-icon">
-                                    <a class="image-popup" href="assets/images/portfolio-3.png"><i
-                                            class="lni-zoom-in"></i></a>
-                                </div>
-                                <div class="portfolio-icon">
-                                    <a href="#"><i class="lni-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-text">
-                        <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                        <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                    </div>
-                </div> <!-- single portfolio -->
-            </div>
-            <div class="col-lg-4 col-sm-6 planning-3 research-3">
-                <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                    <div class="portfolio-image">
-                        <img src="assets/index/assets/images/portfolio-4.png" alt="">
-                        <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                            <div class="portfolio-content">
-                                <div class="portfolio-icon">
-                                    <a class="image-popup" href="assets/images/portfolio-4.png"><i
-                                            class="lni-zoom-in"></i></a>
-                                </div>
-                                <div class="portfolio-icon">
-                                    <a href="#"><i class="lni-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-text">
-                        <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                        <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                    </div>
-                </div> <!-- single portfolio -->
-            </div>
-            <div class="col-lg-4 col-sm-6 marketing-3">
-                <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                    <div class="portfolio-image">
-                        <img src="assets/index/assets/images/portfolio-5.png" alt="">
-                        <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                            <div class="portfolio-content">
-                                <div class="portfolio-icon">
-                                    <a class="image-popup" href="assets/images/portfolio-5.png"><i
-                                            class="lni-zoom-in"></i></a>
-                                </div>
-                                <div class="portfolio-icon">
-                                    <a href="#"><i class="lni-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-text">
-                        <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                        <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                    </div>
-                </div> <!-- single portfolio -->
-            </div>
-            <div class="col-lg-4 col-sm-6 planning-3">
-                <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
-                    <div class="portfolio-image">
-                        <img src="assets/index/assets/images/portfolio-6.png" alt="">
-                        <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                            <div class="portfolio-content">
-                                <div class="portfolio-icon">
-                                    <a class="image-popup" href="assets/images/portfolio-6.png"><i
-                                            class="lni-zoom-in"></i></a>
-                                </div>
-                                <div class="portfolio-icon">
-                                    <a href="#"><i class="lni-link"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-text">
-                        <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                        <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                    </div>
-                </div> <!-- single portfolio -->
-            </div>
-        </div> <!-- row -->
+
     </div> <!-- container -->
 </section>
 
@@ -329,239 +146,45 @@ include 'header.php';   ?>
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section-title text-center pb-20">
-                    <h3 class="title">Pricing Plan</h3>
-                    <p class="text">Stop wasting time and money designing and managing a website that doesn’t get
-                        results. Happiness guaranteed!</p>
+                    <h3 class="title">Data Calon Pelatih</h3>
+                    <p class="text">Cek nama kamu, jika kamu belum terdaftar silahkan register terlebih dahulu, atau
+                        bisa <a href="register.php"> klik disini</a></p>
                 </div> <!-- section title -->
             </div>
         </div> <!-- row -->
         <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="pricing-style-one mt-40 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                    <div class="pricing-icon text-center">
-                        <img src="assets/index/assets/images/wman.svg" alt="">
-                    </div>
-                    <div class="pricing-header text-center">
-                        <h5 class="sub-title">Basic</h5>
-                        <p class="month"><span class="price">$ 199</span>/month</p>
-                    </div>
-                    <div class="pricing-list">
-                        <ul>
-                            <li><i class="lni-check-mark-circle"></i> Carefully crafted components</li>
-                            <li><i class="lni-check-mark-circle"></i> Amazing page examples</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-btn rounded-buttons text-center">
-                        <a class="main-btn rounded-three" href="#">GET STARTED</a>
-                    </div>
-                </div> <!-- pricing style one -->
-            </div>
+            <div class="col-md-7 col-sm-9">
+                <div class="table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Calon Pelatih</th>
+                                <th>Lisensi Sertifikat</th>
+                                <th>Ho. Handphone</th>
 
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="pricing-style-one mt-40 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.5s">
-                    <div class="pricing-icon text-center">
-                        <img src="assets/index/assets/images/wman.svg" alt="">
-                    </div>
-                    <div class="pricing-header text-center">
-                        <h5 class="sub-title">Pro</h5>
-                        <p class="month"><span class="price">$ 399</span>/month</p>
-                    </div>
-                    <div class="pricing-list">
-                        <ul>
-                            <li><i class="lni-check-mark-circle"></i> Carefully crafted components</li>
-                            <li><i class="lni-check-mark-circle"></i> Amazing page examples</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-btn rounded-buttons text-center">
-                        <a class="main-btn rounded-three" href="#">GET STARTED</a>
-                    </div>
-                </div> <!-- pricing style one -->
-            </div>
-
-            <div class="col-lg-4 col-md-7 col-sm-9">
-                <div class="pricing-style-one mt-40 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.8s">
-                    <div class="pricing-icon text-center">
-                        <img src="assets/index/assets/images/wman.svg" alt="">
-                    </div>
-                    <div class="pricing-header text-center">
-                        <h5 class="sub-title">Enterprise</h5>
-                        <p class="month"><span class="price">$ 699</span>/month</p>
-                    </div>
-                    <div class="pricing-list">
-                        <ul>
-                            <li><i class="lni-check-mark-circle"></i> Carefully crafted components</li>
-                            <li><i class="lni-check-mark-circle"></i> Amazing page examples</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-btn rounded-buttons text-center">
-                        <a class="main-btn rounded-three" href="#">GET STARTED</a>
-                    </div>
-                </div> <!-- pricing style one -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $nomor = 1; ?>
+                            <?php $ambil = $koneksi->query("SELECT * FROM calon_pelatih"); ?>
+                            <?php while ($pecah = $ambil->fetch_assoc()) { ?>
+                            <tr>
+                                <td><?php echo $nomor; ?></td>
+                                <td><?php echo $pecah['nama']; ?></td>
+                                <td><?php echo $pecah['lisensi']; ?></td>
+                                <td> <?php echo $pecah['no_hp']; ?>
+                            </tr>
+                            <?php $nomor++; ?>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>>
+            </div> <!-- row -->
+        </div> <!-- container -->
 </section>
 
 <!--====== PRINICNG STYLE EIGHT ENDS ======-->
-
-<!--====== CALL TO ACTION TWO PART START ======-->
-
-<section id="call-action" class="call-action-area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-5">
-                <div class="call-action-content mt-45">
-                    <h3 class="action-title">Get latest updates!</h3>
-                    <p class="text">We never spam your email</p>
-                </div> <!-- call action content -->
-            </div>
-            <div class="col-lg-7">
-                <div class="call-action-form mt-50">
-                    <form action="#">
-                        <input type="text" placeholder="Enter your email">
-                        <div class="action-btn rounded-buttons">
-                            <button class="main-btn rounded-three">subscribe</button>
-                        </div>
-                    </form>
-                </div> <!-- call action form -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
-
-<!--====== CALL TO ACTION TWO PART ENDS ======-->
-
-<!--====== TESTIMONIAL THREE PART START ======-->
-
-<section id="testimonial" class="testimonial-area">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="section-title text-center pb-20">
-                    <h3 class="title">Testimonial</h3>
-                    <p class="text">Stop wasting time and money designing and managing a website that doesn’t get
-                        results. Happiness guaranteed!</p>
-                </div> <!-- section title -->
-            </div>
-        </div> <!-- row -->
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row testimonial-active">
-                    <div class="col-lg-4">
-                        <div class="single-testimonial mt-30 mb-30 text-center">
-                            <div class="testimonial-image">
-                                <img src="assets/index/assets/images/author-3.jpg" alt="Author">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="text">Stop wasting time and money designing and managing a website that
-                                    doesn’t get results. Happiness guaranteed! Stop wasting time and money designing
-                                    and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                                <h6 class="author-name">Isabela Moreira</h6>
-                                <span class="sub-title">CEO, GrayGrids</span>
-                            </div>
-                        </div> <!-- single testimonial -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-testimonial mt-30 mb-30 text-center">
-                            <div class="testimonial-image">
-                                <img src="assets/index/assets/images/author-1.jpg" alt="Author">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="text">Stop wasting time and money designing and managing a website that
-                                    doesn’t get results. Happiness guaranteed! Stop wasting time and money designing
-                                    and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                                <h6 class="author-name">Fiona</h6>
-                                <span class="sub-title">Lead Designer, UIdeck</span>
-                            </div>
-                        </div> <!-- single testimonial -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-testimonial mt-30 mb-30 text-center">
-                            <div class="testimonial-image">
-                                <img src="assets/index/assets/images/author-2.jpg" alt="Author">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="text">Stop wasting time and money designing and managing a website that
-                                    doesn’t get results. Happiness guaranteed! Stop wasting time and money designing
-                                    and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                                <h6 class="author-name">Elon Musk</h6>
-                                <span class="sub-title">CEO, SpaceX</span>
-                            </div>
-                        </div> <!-- single testimonial -->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="single-testimonial mt-30 mb-30 text-center">
-                            <div class="testimonial-image">
-                                <img src="assets/index/assets/images/author-4.jpg" alt="Author">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="text">Stop wasting time and money designing and managing a website that
-                                    doesn’t get results. Happiness guaranteed! Stop wasting time and money designing
-                                    and managing a website that doesn’t get results. Happiness guaranteed!</p>
-                                <h6 class="author-name">Fajar Siddiq</h6>
-                                <span class="sub-title">CEO, MakerFlix</span>
-                            </div>
-                        </div> <!-- single testimonial -->
-                    </div>
-                </div> <!-- row -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
-
-<!--====== TESTIMONIAL THREE PART ENDS ======-->
-
-<!--====== CLIENT LOGO PART START ======-->
-
-<section id="client" class="client-logo-area">
-    <div class="container">
-        <div class="row client-active">
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_01.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_02.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_03.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_04.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_05.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_06.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_07.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-            <div class="col-lg-3">
-                <div class="single-client text-center">
-                    <img src="assets/index/assets/images/client_logo_08.png" alt="Logo">
-                </div> <!-- single client -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
-
-<!--====== CLIENT LOGO PART ENDS ======-->
 
 <!--====== CONTACT TWO PART START ======-->
 
@@ -570,28 +193,31 @@ include 'header.php';   ?>
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="section-title text-center pb-20">
-                    <h3 class="title">Get in touch</h3>
-                    <p class="text">Stop wasting time and money designing and managing a website that doesn’t get
-                        results. Happiness guaranteed!</p>
+                    <h3 class="title">Contact</h3>
+                    <p class="text">Hubungi jika butuh bantuan dan kerjasama</p>
                 </div> <!-- section title -->
             </div>
         </div> <!-- row -->
         <div class="row">
             <div class="col-lg-6">
                 <div class="contact-two mt-50 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                    <h4 class="contact-title">Lets talk about the project</h4>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam unde repellendus
-                        delectus facilis quia consequatur maxime perferendis! Sequi, modi consequatur.</p>
+                    <h4 class="contact-title">Stadion Teladan</h4>
+                    <p class="text">Stadion Teladan adalah sebuah stadion yang paling dikenal sebagai kandang klub sepak
+                        bola Indonesia, PSMS Medan. Stadion ini terletak di Teladan Barat, Medan Kota, Medan dan
+                        mempunyai kapasitas sekitar 20.000 penonton. Stadion Teladan dibangun mulai tahun 1951 dan
+                        selesai pada tahun 1953 menjelang Pekan Olahraga Nasional III. Stadion ini sedang dikembangkan
+                        supaya dapat menampung 40.000 penonton.</p>
 
                 </div> <!-- contact two -->
             </div>
             <div class="col-lg-6">
                 <div class="contact-two mt-50 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                    <h4 class="contact-title">Lets talk about the project</h4>
+                    <h4 class="contact-title">Hubungi Lebih lanjut</h4>
                     <ul class="contact-info">
-                        <li><i class="lni-money-location"></i> Elizabeth St, Melbourne, Australia</li>
-                        <li><i class="lni-phone-handset"></i> +333 789-321-654</li>
-                        <li><i class="lni-envelope"></i> hello@ayroui.com</li>
+                        <li><i class="lni-money-location"></i> Teladan Bar., Kec. Medan Kota, Kota Medan, Sumatera Utara
+                            20216</li>
+                        <li><i class="lni-phone-handset"></i> (061) 789-321-654</li>
+                        <li><i class="lni-envelope"></i> psmsmedan@gmail.com</li>
                     </ul>
                 </div>
             </div> <!-- row -->
