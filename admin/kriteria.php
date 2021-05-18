@@ -26,8 +26,8 @@
             <td>
                 <a href="index.php?halaman=kriteriaubah&id=<?php echo $pecah['id_kriteria']; ?>"
                     class="btn-warning btn">Edit</a>
-                <a href="index.php?halaman=kriteriahapus&id=<?php echo $pecah['id_kriteria']; ?>" class="btn-danger btn"
-                    onclick="return confirm('Apakah yakin ingin menghapus data kriteria?');">Hapus</a>
+                <!-- <a href="index.php?halaman=kriteriahapus&id=<?php echo $pecah['id_kriteria']; ?>" class="btn-danger btn"
+                    onclick="return confirm('Apakah yakin ingin menghapus data kriteria?');">Hapus</a> -->
             </td>
         </tr>
         <?php $nomor++;

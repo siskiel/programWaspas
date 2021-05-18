@@ -90,19 +90,19 @@ include 'config/koneksi.php';
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item active">
-                                        <a class="page-scroll" href="#home">Beranda</a>
+                                        <a class="page-scroll" href="index.php#home">Beranda</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#about">Tentang</a>
+                                        <a class="page-scroll" href="index.php#about">Tentang</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#portfolio">Sejarah PSMS</a>
+                                        <a class="page-scroll" href="index.php#portfolio">Sejarah PSMS</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#pricing">Data Calon Pelatih</a>
+                                        <a class="page-scroll" href="index.php#pricing">Data Calon Pelatih</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#contact">Contact</a>
+                                        <a class="page-scroll" href="index.php#contact">Contact</a>
                                     </li>
 
                                     <!-- jika sudah login ada session calon pelatih -->

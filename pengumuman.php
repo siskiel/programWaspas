@@ -1,40 +1,39 @@
-<?php 
-  include 'header.php';   ?>
+<?php
+include 'header.php';   ?>
 <?php
 // session_start();
-//koneksi ke database
-// include '../config/koneksi.php';
-if(!isset($_SESSION['calon_pelatih']))
-{
-    echo "<script>alert('Anda Harus Login');</script>";
-    echo "<script>location='login.php';</script>";
-    header('location:login.php');
-    exit();
+// koneksi ke database
+// include 'config/koneksi.php';
+if (!isset($_SESSION['calon_pelatih'])) {
+  echo "<script>alert('Anda Harus Login');</script>";
+  echo "<script>location='login.php';</script>";
+  header('location:login.php');
+  exit();
 }
 $id_calon_pelatih=$_SESSION["calon_pelatih"]['id_calon_pelatih'];
 // $ambil = $koneksi->query("SELECT * FROM calon_pelatih WHERE id_calon_pelatih='$id_calon_pelatih'");
 // $pecah = $ambil->fetch_assoc();
-$ambil_rangking = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_pelatih )) AS ranking FROM calon_pelatih WHERE id_calon_pelatih='$id_calon_pelatih'"); 
+$ambil_rangking = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM
+        penilaian )) AS ranking FROM penilaian JOIN calon_pelatih ON calon_pelatih.id_calon_pelatih=penilaian.id_calon_pelatih WHERE penilaian.id_calon_pelatih='$id_calon_pelatih'"); 
 $pecah = $ambil_rangking->fetch_assoc();
 ?>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>Pengumuman</h2>
-                <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li>Pengumuman</li>
-                    <li><?= $pecah['nama']?></li>
-                </ol>
-            </div>
-
-        </div>
-    </section><!-- End Breadcrumbs -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pengumuman</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo $pecah['nama']; ?></li>
+        </ol>
+    </nav>
+    <!-- End Breadcrumbs -->
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">

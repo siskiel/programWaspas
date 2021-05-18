@@ -17,7 +17,8 @@
     <tbody>
         <?php $nomor = 1 ;
        
-         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM calon_pelatih )) AS ranking FROM calon_pelatih"); 
+         $ambil = $koneksi->query("SELECT *,FIND_IN_SET( hasil, (SELECT GROUP_CONCAT( hasil ORDER BY hasil DESC ) FROM
+        penilaian )) AS ranking FROM penilaian JOIN calon_pelatih ON calon_pelatih.id_calon_pelatih=penilaian.id_calon_pelatih"); 
        ?>
         <?php while ($detail = $ambil->fetch_assoc()) { ?>
         <tr>
