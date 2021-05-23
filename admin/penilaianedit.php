@@ -21,16 +21,17 @@
     
     // ambil nilai sub kriteria
     $subkriteria = [];
-    $result = $koneksi->query('SELECT * FROM sub_kriteria ORDER BY id_kriteria ASC');
-    $index = 0;
-    while ($row = mysqli_fetch_array($result)) :
-        $subkriteria['id_sub_kriteria'][$index] = $row['id_sub_kriteria'];
-        $subkriteria['id_kriteria'][$index] = $row['id_kriteria'];
-        $subkriteria['nama_sub'][$index] = $row['nama_sub'];
-        $subkriteria['bobot_sub'][$index] = $row['bobot_sub'];
-        $index += 1;
-    endwhile;
-    // print_r($subkriteria['nama_sub'])
+    for ($i=0; $i < count($kriteria['id_kriteria']); $i++) { 
+        $result = $koneksi->query('SELECT * FROM sub_kriteria WHERE id_kriteria="'.$kriteria['id_kriteria'][$i].'"');
+        $index = 0;
+        while ($row = mysqli_fetch_array($result)) :
+            $subkriteria[$kriteria['id_kriteria'][$i]]['id_sub_kriteria'][$index] = $row['id_sub_kriteria'];
+            $subkriteria[$kriteria['id_kriteria'][$i]]['id_kriteria'][$index]     = $row['id_kriteria'];
+            $subkriteria[$kriteria['id_kriteria'][$i]]['nama_sub'][$index]        = $row['nama_sub'];
+            $subkriteria[$kriteria['id_kriteria'][$i]]['bobot_sub'][$index]       = $row['bobot_sub'];
+            $index += 1;
+        endwhile;
+    }
     ?>
  <?php while ($pecah = $ambil_calon_pelatih->fetch_assoc()) { ?>
  <h2>Edit Penilaian <strong> <?= $pecah['nama']?></strong> </h2>
@@ -53,88 +54,45 @@
                      <th>Bobot Kriteria</th>
                  </thead>
                  <tbody>
-                     <?php $no = 0 ;?>
-                     <tr>
-                         <td>1</td>
-                         <td><?php echo $kriteria['kode_kriteria'][0]; ?></td>
-                         <td><?php echo $kriteria['nama_kriteria'][0]; ?></td>
-                         <td><select name="c1">
-
-                                 <option disabled="disabled" selected="selected">--Pilih--</option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][0]?>">
-                                     <?php echo $subkriteria['nama_sub'][0]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][1]?>">
-                                     <?php echo $subkriteria['nama_sub'][1]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][2]?>">
-                                     <?php echo $subkriteria['nama_sub'][2]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][3]?>">
-                                     <?php echo $subkriteria['nama_sub'][3]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][4]?>">
-                                     <?php echo $subkriteria['nama_sub'][4]?></option>
-
-                                 <?php  ; ?>
-                             </select></td>
-                     </tr>
-                     <tr>
-                         <td>2</td>
-                         <td><?php echo $kriteria['kode_kriteria'][1]; ?></td>
-                         <td><?php echo $kriteria['nama_kriteria'][1]; ?></td>
-                         <td><select name="c2">
-                                 <option disabled="disabled" selected="selected">--Pilih--</option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][5]?>">
-                                     <?php echo $subkriteria['nama_sub'][5]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][6]?>">
-                                     <?php echo $subkriteria['nama_sub'][6]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][7]?>">
-                                     <?php echo $subkriteria['nama_sub'][7]?></option>
-
-                             </select></td>
-                     </tr>
-                     <tr>
-                         <td>3</td>
-                         <td><?php echo $kriteria['kode_kriteria'][2]; ?></td>
-                         <td><?php echo $kriteria['nama_kriteria'][2]; ?></td>
-                         <td><select name="c3">
-                                 <option disabled="disabled" selected="selected">--Pilih--</option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][8]?>">
-                                     <?php echo $subkriteria['nama_sub'][8]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][9]?>">
-                                     <?php echo $subkriteria['nama_sub'][9]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][10]?>">
-                                     <?php echo $subkriteria['nama_sub'][10]?></option>
-                                 <?php  ; ?>
-                             </select></td>
-                     </tr>
-                     <tr>
-                         <td>4</td>
-                         <td><?php echo $kriteria['kode_kriteria'][3]; ?></td>
-                         <td><?php echo $kriteria['nama_kriteria'][3]; ?></td>
-                         <td><select name="c4">
-                                 <option disabled="disabled" selected="selected">--Pilih--</option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][11]?>">
-                                     <?php echo $subkriteria['nama_sub'][11]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][12]?>">
-                                     <?php echo $subkriteria['nama_sub'][12]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][13]?>">
-                                     <?php echo $subkriteria['nama_sub'][13]?></option>
-
-                                 <?php  ; ?>
-                             </select></td>
-                     </tr>
-                     <tr>
-                         <td>5</td>
-                         <td><?php echo $kriteria['kode_kriteria'][4]; ?></td>
-                         <td><?php echo $kriteria['nama_kriteria'][4]; ?></td>
-                         <td><select name="c5">
-                                 <option disabled="disabled" selected="selected">--Pilih--</option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][14]?>">
-                                     <?php echo $subkriteria['nama_sub'][14]?></option>
-                                 <option value="<?php echo $subkriteria['bobot_sub'][15]?>">
-                                     <?php echo $subkriteria['nama_sub'][15]?></option>
-                                 <?php  ; ?>
-                             </select></td>
-                     </tr>
+                    <?php
+                        for ($i=0; $i < count($kriteria['kode_kriteria']); $i++) { 
+                            echo "<tr>";
+                            echo "<td>" . ($i+1) . "</td>";
+                            echo "<td>" . $kriteria['kode_kriteria'][$i] . "</td>";
+                            echo "<td>" . $kriteria['nama_kriteria'][$i] . "</td>";
+                            echo "<td>";
+                            echo "<select name='".strtolower($kriteria['kode_kriteria'][$i])."'>";
+                            echo "<option value=''>-- Pilih --</option>";
+                            for ($j=0; $j < count($subkriteria[$kriteria['id_kriteria'][$i]]['nama_sub']); $j++) { 
+                                echo "<option value='".$subkriteria[$kriteria['id_kriteria'][$i]]['bobot_sub'][$j]."'>" . $subkriteria[$kriteria['id_kriteria'][$i]]['nama_sub'][$j] . "</option>";
+                            }
+                            echo "</select>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    ?>
                  </tbody>
              </table>
              <button class="btn btn-primary" name="save">Simpan</button>
          </form>
+
+         <?php
+            if (isset($_POST['save'])) {
+                $nama = $_GET['id'];
+                $c1 = $_POST['c1'];
+                $c2 = $_POST['c2'];
+                $c3 = $_POST['c3'];
+                $c4 = $_POST['c4'];
+                $c5 = $_POST['c5'];
+
+                $ambil = $koneksi->query("SELECT * FROM penilaian WHERE id_calon_pelatih='$nama'");
+                $yangcocok = $ambil->num_rows;
+                if ($yangcocok == 1) {
+                    $koneksi->query("UPDATE penilaian SET C1='".$c1."', C2='".$c2."', C3='".$c3."', C4='".$c4."', C5='".$c5."' WHERE id_calon_pelatih='".$nama."'");
+                    echo "<div class='alert alert-info'>Data berhasil diperbarui</div>";
+                    echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=penilaian'>";
+                } else {
+                    echo "<script>alert('Data Nilai Tidak Ada, Silahkan isi data terlebih dahulu');</script>";
+                    echo "<script>location='index.php?halaman=penilaiantambah';</script>";
+                }
+            } ?>
