@@ -9,6 +9,7 @@
             <th>Nama Calon Pelatih</th>
             <th>Lisensi</th>
             <th>Keterangan Validasi</th>
+            <th>Keterangan Penilaian</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -19,11 +20,28 @@
         <tr>
             <td><?php echo $nomor; ?></td>
             <td><?php echo $pecah['nama']; ?></td>
-            <td><?php echo $pecah['lisensi']; ?></td>
-            <td> <?php if ($pecah['keterangan']==NULL ): ?>
+            <td><?php $lisensi = $pecah['lisensi'];
+                    if ($lisensi == 5) {
+                        echo "A Pro";
+                    } elseif ($lisensi == 4) {
+                        echo "A";
+                    } elseif ($lisensi == 3) {
+                        echo "B";
+                    } elseif ($lisensi == 2) {
+                        echo "C";
+                    } else {
+                        echo "D";
+                    };
+                    ?></td>
+            <td> <?php if ($pecah['validasi'] == NULL) : ?>
                 Data Belum di validasi
                 <?php else : ?>
-                <?php echo $pecah['keterangan']; ?></td>
+                <?php echo $pecah['validasi']; ?></td>
+            <?php endif ?>
+            <td> <?php if ($pecah['status_penilaian'] == NULL) : ?>
+                Belum Dinilai
+                <?php else : ?>
+                <?php echo $pecah['status_penilaian']; ?></td>
             <?php endif ?>
 
             <td>

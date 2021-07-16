@@ -179,9 +179,10 @@ include 'header.php';   ?>
                             <?php } ?>
                         </tbody>
                     </table>
-                </div>>
+                </div>
             </div> <!-- row -->
         </div> <!-- container -->
+    </div>
 </section>
 
 <!--====== PRINICNG STYLE EIGHT ENDS ======-->
@@ -214,7 +215,8 @@ include 'header.php';   ?>
                 <div class="contact-two mt-50 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
                     <h4 class="contact-title">Hubungi Lebih lanjut</h4>
                     <ul class="contact-info">
-                        <li><i class="lni-money-location"></i> Teladan Bar., Kec. Medan Kota, Kota Medan, Sumatera Utara
+                        <li><i class="lni-money-location"></i> Teladan Barat, Kec. Medan Kota, Kota Medan, Sumatera
+                            Utara
                             20216</li>
                         <li><i class="lni-phone-handset"></i> (061) 789-321-654</li>
                         <li><i class="lni-envelope"></i> psmsmedan@gmail.com</li>

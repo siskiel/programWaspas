@@ -1,5 +1,5 @@
 <h2> Data Penilaian</h2>
-<a href="index.php?halaman=penilaiantambah" class="btn btn-primary">Tambah Penilaian</a>
+<!-- <a href="index.php?halaman=penilaiantambah" class="btn btn-primary">Tambah Penilaian</a> -->
 <!-- <a href="cetakproduk.php" class="btn btn-warning" target="_blank">Cetak Semua Data </a>  -->
 <br>
 <br>
@@ -8,12 +8,12 @@
         <tr>
             <th>No</th>
             <th>Nama Calon Pelatih</th>
-            <th>C1</th>
-            <th>C2</th>
-            <th>C3</th>
-            <th>C4</th>
-            <th>C5</th>
-            <th>Aksi</th>
+            <th>Lisensi</th>
+            <th>Pengalaman Melatih</th>
+            <th>Pengalaman Bermain</th>
+            <th>Visi Misi</th>
+            <th>Pemahaman Taktik</th>
+            <!-- <th>Aksi</th> -->
         </tr>
     </thead>
     <tbody>
@@ -30,13 +30,13 @@
             <td><?php echo $pecah['C5']; ?></td>
 
 
-            <td>
+            <!-- <td>
                 <a href="index.php?halaman=penilaianedit&id=<?php echo $pecah['id_calon_pelatih']; ?>"
                     class="btn-warning btn">Edit</a>
                 <a href="index.php?halaman=penilaianhapus&id=<?php echo $pecah['id_calon_pelatih']; ?>"
                     class="btn-danger btn"
                     onclick="return confirm('Apakah yakin ingin menghapus data pelatih?');">Hapus</a>
-            </td>
+            </td> -->
         </tr>
         <?php $nomor++; ?>
         <?php } ?>

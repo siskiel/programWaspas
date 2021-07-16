@@ -54,7 +54,7 @@
                      <th>Bobot Kriteria</th>
                  </thead>
                  <tbody>
-                    <?php
+                     <?php
                         for ($i=0; $i < count($kriteria['kode_kriteria']); $i++) { 
                             echo "<tr>";
                             echo "<td>" . ($i+1) . "</td>";
@@ -62,7 +62,7 @@
                             echo "<td>" . $kriteria['nama_kriteria'][$i] . "</td>";
                             echo "<td>";
                             echo "<select name='".strtolower($kriteria['kode_kriteria'][$i])."'>";
-                            echo "<option value=''>-- Pilih --</option>";
+                            // echo "<option value=''>-- Pilih --</option>";
                             for ($j=0; $j < count($subkriteria[$kriteria['id_kriteria'][$i]]['nama_sub']); $j++) { 
                                 echo "<option value='".$subkriteria[$kriteria['id_kriteria'][$i]]['bobot_sub'][$j]."'>" . $subkriteria[$kriteria['id_kriteria'][$i]]['nama_sub'][$j] . "</option>";
                             }

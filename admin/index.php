@@ -60,9 +60,9 @@ font-size: 16px;"><span id="tanggalwaktu"></span> </div>
                     <li>
                         <a href="index.php?halaman=kriteria"><i class="fa fa-file"></i> Data Kriteria</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="index.php?halaman=subkriteria"><i class="fa fa-file"></i> Data Sub-Kriteria</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="index.php?halaman=penilaian"><i class="fa fa-check-square"></i> Data Penilaian</a>
                     </li>

@@ -6,6 +6,7 @@ $result = $koneksi->query('SELECT * FROM penilaian ORDER BY id_penilaian ASC');
 $index = 0;
 while ($row = mysqli_fetch_array($result)) :
     $penilaian['id_penilaian'][$index] = $row['id_penilaian'];
+    $penilaian['id_calon_pelatih'][$index] = $row['id_calon_pelatih'];
     $penilaian['C1'][$index] = $row['C1'];
     $penilaian['C2'][$index] = $row['C2'];
     $penilaian['C3'][$index] = $row['C3'];
@@ -51,7 +52,7 @@ $maxc4 = max($penilaian['C4']);
 $maxc5 = max($penilaian['C5']);
 
 // step 2 = melakukan normalisasi matriks
-for ($i = 0; $i < count($penilaian['C1']); $i++) {
+for ($i = 0; $i < count($penilaian['id_penilaian']); $i++) {
     $normalisasi_c1[] = round($penilaian['C1'][$i] / $maxc1, 4);
     $normalisasi_c2[] = round($penilaian['C2'][$i] / $maxc2, 4);
     $normalisasi_c3[] = round($penilaian['C3'][$i] / $maxc3, 4);
@@ -62,47 +63,35 @@ for ($i = 0; $i < count($penilaian['C1']); $i++) {
 // print_r($normalisasi_c1)
 
 // step 3 = menghitung wsm
-for ($i = 0; $i < count($penilaian['C1']); $i++) {
+for ($i = 0; $i < count($penilaian['id_penilaian']); $i++) {
     $rumus = 0.5 * (($normalisasi_c1[$i] * $kriteria['bobot'][0]) + ($normalisasi_c2[$i] * $kriteria['bobot'][1]) + ($normalisasi_c3[$i] * $kriteria['bobot'][2]) + ($normalisasi_c4[$i] * $kriteria['bobot'][3]) + ($normalisasi_c5[$i] * $kriteria['bobot'][4]));
 
     $hitungWSM[] = round($rumus, 4);
 }
 
+// print_r( $kriteria['bobot'][0]);
 // step 4 = menghitung wsp
-for ($i = 0; $i < count($penilaian['C1']); $i++) {
+for ($i = 0; $i < count($penilaian['id_penilaian']); $i++) {
     $rumus = 0.5 * (pow($normalisasi_c1[$i], $kriteria['bobot'][0]) * pow($normalisasi_c2[$i], $kriteria['bobot'][1]) * pow($normalisasi_c3[$i], $kriteria['bobot'][2]) * pow($normalisasi_c4[$i], $kriteria['bobot'][3]) * pow($normalisasi_c5[$i], $kriteria['bobot'][4]));
 
     $hitungWPM[] = round($rumus, 4);
 }
+// //  print_r($hitungWPM[2]);
+// print_r($hitungWPM[0]); "<br>";
+// print_r($hitungWPM[1]); "<br>";
+// print_r($hitungWPM[2]); "<br>";
 
 // step 5 = menghitung Qi
-for ($i = 0; $i < count($penilaian['C1']); $i++) {
+for ($i = 0; $i < count($penilaian['id_penilaian']); $i++) {
     $rumus = $hitungWSM[$i] + $hitungWPM[$i];
 
     $hitungQi[] = round($rumus, 4);
+    
 
-    // update ke table calon_pelatih
-    // $koneksi->query('UPDATE calon_pelatih SET hasil="' . $hitungQi[$i] . '" WHERE id_calon_pelatih="' . $alternatif['id_calon_pelatih'][$i] . '"');
+    
     // update ke table penilaian
-    $koneksi->query('UPDATE penilaian SET hasil="' . $hitungQi[$i] . '" WHERE id_calon_pelatih="' . $alternatif['id_calon_pelatih'][$i] . '"');
+    $koneksi->query('UPDATE penilaian SET hasil="' . $hitungQi[$i] . '" WHERE id_penilaian="' . $penilaian['id_penilaian'][$i]. '"');
 }
-
-print_r($hitungQi);
-// echo $hitungQi[$i]
-
-// menyimpan nilai Qi
-// $koneksi->query('UPDATE penilaian SET  hasil="' .  $hasil1 . '"  WHERE id_calon_pelatih=1');
-// $koneksi->query('UPDATE penilaian SET  hasil="' .  $hasil2 . '"  WHERE id_calon_pelatih=2');
-// $koneksi->query('UPDATE penilaian SET  hasil="' .  $hasil3 . '"  WHERE id_calon_pelatih=3');
-// $koneksi->query('UPDATE penilaian SET  hasil="' .  $hasil4 . '"  WHERE id_calon_pelatih=4');
-// $koneksi->query('UPDATE penilaian SET  hasil="' .  $hasil5 . '"  WHERE id_calon_pelatih=5');
-// $koneksi->query('UPDATE penilaian SET  hasil="' .  $hasil6 . '"  WHERE id_calon_pelatih=6');
-// $koneksi->query('UPDATE calon_pelatih SET  hasil="' .  $hasil1 . '"  WHERE id_calon_pelatih=1');
-// $koneksi->query('UPDATE calon_pelatih SET  hasil="' .  $hasil2 . '"  WHERE id_calon_pelatih=2');
-// $koneksi->query('UPDATE calon_pelatih SET  hasil="' .  $hasil3 . '"  WHERE id_calon_pelatih=3');
-// $koneksi->query('UPDATE calon_pelatih SET  hasil="' .  $hasil4 . '"  WHERE id_calon_pelatih=4');
-// $koneksi->query('UPDATE calon_pelatih SET  hasil="' .  $hasil5 . '"  WHERE id_calon_pelatih=5');
-// $koneksi->query('UPDATE calon_pelatih SET  hasil="' .  $hasil6 . '"  WHERE id_calon_pelatih=6');
 ?>
 
 <h4>Nilai Max </h4>

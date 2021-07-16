@@ -22,7 +22,6 @@ $pecah = $ambil_rangking->fetch_assoc();
 <br>
 <br>
 <br>
-<br>
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -40,6 +39,10 @@ $pecah = $ambil_rangking->fetch_assoc();
         <div class="container">
 
             <div class="portfolio-details-container" data-aos="fade-up" data-aos-delay="100">
+                <?php if ($validasi = $pecah['validasi']== NULL):
+             ?>
+                <h2> Data sedang Di proses </h2>
+                <?php else :  ?>
                 <h2> Data Telah selesai Di proses </h2>
             </div>
 
@@ -53,6 +56,7 @@ $pecah = $ambil_rangking->fetch_assoc();
                         <?php else :  ?>
                         <h5>Mohon Maaf Anda <strong>Tidak Terpilih Sebagai Pelatih PSMS MEDAN</strong></h5>
                     </div>
+
                 </div>
                 <?php endif ?>
                 <br>
@@ -69,6 +73,7 @@ $pecah = $ambil_rangking->fetch_assoc();
                                         <tr>
 
                                             <th scope="col">Nama</th>
+                                            <th scope="col">Validasi Data</th>
                                             <th scope="col">Hasil Nilai</th>
                                             <th scope="col">Rangking</th>
                                         </tr>
@@ -76,6 +81,7 @@ $pecah = $ambil_rangking->fetch_assoc();
                                     <tbody>
                                         <tr>
                                             <td><?php echo $pecah['nama']; ?></td>
+                                            <td><?php echo $pecah['validasi']; ?></td>
                                             <td><?php echo $pecah['hasil']; ?></td>
                                             <td><?php echo $pecah['ranking']; ?></td>
                                         </tr>
@@ -83,7 +89,7 @@ $pecah = $ambil_rangking->fetch_assoc();
                                 </table>
                                 <!-- </div> -->
                             </div>
-
+                            <?php endif ?>
                         </div>
                     </div><!-- End .content-->
                 </div>

@@ -1,7 +1,5 @@
  <?php
 
-use Svg\Tag\Group;
-
 $ambil_kriteria = $koneksi->query("SELECT * FROM kriteria");
     $ambil_calon_pelatih = $koneksi->query("SELECT * FROM calon_pelatih");
     //    hitung jumlah data kriteria []
@@ -62,7 +60,7 @@ $ambil_kriteria = $koneksi->query("SELECT * FROM kriteria");
                      <th>Bobot Kriteria</th>
                  </thead>
                  <tbody>
-                    <?php
+                     <?php
                         for ($i=0; $i < count($kriteria['kode_kriteria']); $i++) { 
                             echo "<tr>";
                             echo "<td>" . ($i+1) . "</td>";
@@ -98,7 +96,7 @@ $ambil_kriteria = $koneksi->query("SELECT * FROM kriteria");
                     echo "<script>alert('Data Nilai Telah Ada, Silahkan isi data lain');</script>";
                     echo "<script>location='index.php?halaman=penilaiantambah';</script>";
                 } else {
-                    $koneksi->query("INSERT INTO penilaian (id_calon_pelatih,C1,C2,C3,C4,C5,hasil) VALUES('$nama','$c1','$c2','$c3','$c4','$c5', 0)");
+                    $koneksi->query("INSERT INTO penilaian (id_calon_pelatih,C1,C2,C3,C4,C5) VALUES('$nama','$c1','$c2','$c3','$c4','$c5')");
                     echo "<div class='alert alert-info'>Data tersimpan</div>";
                     echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=penilaian'>";
                 }

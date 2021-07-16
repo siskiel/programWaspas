@@ -8,7 +8,7 @@
                                   href="https://uideck.con"> Fadil Fahrizal</a>
                           </p>
                           <p>
-                              &copy; Copyright<a style="color: #38f9d7" rel="nofollow" href="https://ayroui.com">PSMS
+                              &copy; Copyright <a style="color: #38f9d7" rel="nofollow" href="https://ayroui.com">PSMS
                                   Medan</a></p>
                       </div> <!--  copyright -->
                   </div>
